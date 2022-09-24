@@ -8,5 +8,8 @@ def test_one_char_is_palindrome():
 def test_non_pal_false():
     assert is_palindrome('not') == False
 
-def test_mom_true():
+def test_three_letter_true():
     assert is_palindrome("mom") == True
+
+def test_four_letter_true():
+    assert is_palindrome("deed") == True
