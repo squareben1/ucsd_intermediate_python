@@ -19,3 +19,6 @@ def test_four_letter_false():
 
 def test_five_letter_true():
     assert is_palindrome("level") == True
+
+def test_extra_cred_case_sensitivity():
+    assert is_palindrome("Level") == True    
