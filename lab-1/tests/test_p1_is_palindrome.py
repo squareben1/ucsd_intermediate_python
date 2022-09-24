@@ -13,3 +13,9 @@ def test_three_letter_true():
 
 def test_four_letter_true():
     assert is_palindrome("deed") == True
+
+def test_four_letter_false():
+    assert is_palindrome("dead") == False
+
+def test_five_letter_true():
+    assert is_palindrome("level") == True
