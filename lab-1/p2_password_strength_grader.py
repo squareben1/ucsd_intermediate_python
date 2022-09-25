@@ -5,11 +5,20 @@ def check_password(password):
     upper_case_score = 0
     lower_case_score = 0
     number_score = 0
+    special_char_score = 0
 
     if len(password) >= 8:
         score += 1
 
+    special_chars = "!@#$%^&*"
+    special_chars_stripped_pw = ''.join(
+        c for c in password if c not in special_chars)
+
     for i in password:
+        if i in "!@#$%^&*":
+            special_char_score += 1
+
+    for i in special_chars_stripped_pw:
         if i == i.upper():
             upper_case_score += 1
         if i == i.lower():
@@ -26,6 +35,7 @@ def check_password(password):
     if number_score > 0:
         score += 1
 
-
+    if special_char_score > 0:
+        score += 1
 
     return score
