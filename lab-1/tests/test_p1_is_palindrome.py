@@ -40,7 +40,7 @@ def test_extra_cred_sentences():
     assert is_palindrome("Was it a car or a cat I saw") == True
 
 
-def test_feature_user_input(monkeypatch):
+def test_feature_user_input():
     # mock user input
     builtins.input = lambda: "REDIVIDER"
     assert main() == "Is 'REDIVIDER' a palindrome? True"
