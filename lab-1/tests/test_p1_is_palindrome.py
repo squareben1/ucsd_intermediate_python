@@ -20,5 +20,13 @@ def test_four_letter_false():
 def test_five_letter_true():
     assert is_palindrome("level") == True
 
+def test_nine_chars():
+    assert is_palindrome("REDIVIDER") == True
+
 def test_extra_cred_case_sensitivity():
-    assert is_palindrome("Level") == True    
+    assert is_palindrome("Level") == True  
+
+def test_extra_cred_sentences():
+    assert is_palindrome("Was it a car or a cat I saw") == True
+    # wasitacaroracatisaw
+    # remove middle character of uneven numbers 
