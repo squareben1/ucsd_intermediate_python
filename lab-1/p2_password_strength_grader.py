@@ -8,6 +8,15 @@ def check_password(password):
     special_char_score = 0
 
     if len(password) >= 8:
+        # if more than or equal to 8
+        overall_score += 1
+    
+    if len(password) > 8:
+        # bonus point if more than 8 and less than 16
+        overall_score += 1
+
+    if len(password) >= 16:
+        # bonus point if more than 16
         overall_score += 1
 
     for i in password:
@@ -16,7 +25,7 @@ def check_password(password):
         if i in "123456789":
             number_score += 1
 
-    # strip special chars to avoid double count.
+    # strip special chars & numbers to avoid double count.
     stripped_pw = strip_special_characters_numbers(password)
 
     for i in stripped_pw:

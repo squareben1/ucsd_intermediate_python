@@ -25,11 +25,17 @@ def test_special_char():
 
 
 def test_all_adds_up_to_5():
-    assert check_password("Abcdefgh1!") == 5
+    assert check_password("Abcdef1!") == 5
+
+def test_extra_cred_bonus_more_8():
+    assert check_password("abcdefghi") == 3
+
+def test_extra_cred_bonus_more_16():
+    assert check_password("abcdefghijklmnopq") == 4
 
 
 def test_feature_user_input_pw():
     # mock user input
-    builtins.input = lambda: "Abcdefgh1!"
+    builtins.input = lambda: "Abcdef1!"
     assert main() == "Your password score is: 5"
     builtins.input = input
