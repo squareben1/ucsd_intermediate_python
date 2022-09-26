@@ -1,3 +1,6 @@
+import pytest
+import builtins
+
 from p2_password_strength_grader import *
 
 
@@ -20,5 +23,13 @@ def test_score_numeric():
 def test_special_char():
     assert check_password("!") == 1
 
+
 def test_all_adds_up_to_5():
     assert check_password("Abcdefgh1!") == 5
+
+
+def test_feature_user_input_pw():
+    # mock user input
+    builtins.input = lambda: "Abcdefgh1!"
+    assert main() == "Your password score is: 5"
+    builtins.input = input
