@@ -43,16 +43,19 @@ def check_password(password):
     if special_char_score > 0:
         overall_score += 1
 
+    # overall_score = tally_scores(
+    #     upper_case_score, lower_case_score, number_score, special_char_score)
+
     return overall_score
 
 
 def check_string_contains(password, string):
-    found = 0
+    contains_score = 0
     for i in password:
         if i in string:
-            found += 1
+            contains_score += 1
 
-    return found
+    return contains_score
 
 
 def strip_special_characters_numbers(password):
@@ -62,6 +65,16 @@ def strip_special_characters_numbers(password):
         c for c in password if c not in special_chars)
 
     return special_chars_stripped_pw
+
+
+# def tally_scores(upper_case_score, lower_case_score, number_score, special_char_score):
+#     scores = [upper_case_score, lower_case_score,
+#               number_score, special_char_score]
+#     overall_score = 0
+#     for score in scores:
+#         if score > 0:
+#             overall_score += 1
+#     return overall_score
 
 
 def main():
