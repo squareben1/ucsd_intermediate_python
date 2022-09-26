@@ -4,29 +4,23 @@ def check_password(password):
     overall_score = 0
     upper_case_score = 0
     lower_case_score = 0
-    number_score = 0
-    special_char_score = 0
+    number_score = check_string_contains(password, "123456789")
+    special_char_score = check_string_contains(password, "!@#$%^&*")
     pw_length = len(password)
 
     if pw_length >= 8:
-    # if pw_length >= 8 and pw_length <= 11: # <- if using webpage instructions rather than PDF, see NOTE in README
+        # if pw_length >= 8 and pw_length <= 11: # <- if using webpage instructions rather than PDF, see `NOTE ON BONUS POINTS` in README
         # point if more than or equal to 8
         overall_score += 1
 
     if pw_length > 8:
-    # if pw_length >= 12 and pw_length <= 15: # <- if using webpage instructions rather than PDF, see NOTE in README
+        # if pw_length >= 12 and pw_length <= 15: # <- if using webpage instructions rather than PDF, see `NOTE ON BONUS POINTS` in README
         # bonus point if more than 8 and less than 16
         overall_score += 1
 
     if pw_length >= 16:
         # bonus point if more than 16
         overall_score += 1
-
-    for i in password:
-        if i in "!@#$%^&*":
-            special_char_score += 1
-        if i in "123456789":
-            number_score += 1
 
     # strip special chars & numbers to avoid double count.
     stripped_pw = strip_special_characters_numbers(password)
@@ -50,6 +44,15 @@ def check_password(password):
         overall_score += 1
 
     return overall_score
+
+
+def check_string_contains(password, string):
+    found = 0
+    for i in password:
+        if i in string:
+            found += 1
+
+    return found
 
 
 def strip_special_characters_numbers(password):
