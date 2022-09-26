@@ -14,8 +14,11 @@ def test_score_lower_case():
 
 
 def test_score_numeric():
-    assert check_password("1") == 2
+    assert check_password("1") == 1
 
 
 def test_special_char():
     assert check_password("!") == 1
+
+def test_all_adds_up_to_5():
+    assert check_password("Abcdefgh1!") == 5
