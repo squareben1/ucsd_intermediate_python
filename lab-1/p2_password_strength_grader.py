@@ -9,10 +9,12 @@ def check_password(password):
     pw_length = len(password)
 
     if pw_length >= 8:
+    # if pw_length >= 8 and pw_length <= 11: # <- if using webpage instructions rather than PDF, see NOTE in README
         # point if more than or equal to 8
         overall_score += 1
-    
+
     if pw_length > 8:
+    # if pw_length >= 12 and pw_length <= 15: # <- if using webpage instructions rather than PDF, see NOTE in README
         # bonus point if more than 8 and less than 16
         overall_score += 1
 
