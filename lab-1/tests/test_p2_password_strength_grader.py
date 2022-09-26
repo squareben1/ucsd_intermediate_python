@@ -39,3 +39,9 @@ def test_feature_user_input_pw():
     builtins.input = lambda: "Abcdef1!"
     assert main() == "Your password score is: 5"
     builtins.input = input
+
+def test_feature_user_input_pw_max_score():
+    # mock user input
+    builtins.input = lambda: "Abcdefghijklmnopq1!"
+    assert main() == "Your password score is: 7"
+    builtins.input = input
