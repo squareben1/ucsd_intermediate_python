@@ -39,3 +39,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# def f(string):
+#     if len(string) < 2:
+#         return True
+#     return f(string[1:-1]) if string[0] == string[-1] else False
+
+
+# def is_palindrome(string):
+#     fmted_string = string.lower().replace(" ", "")
+#     return f(fmted_string)
