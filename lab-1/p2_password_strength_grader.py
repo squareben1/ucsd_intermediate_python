@@ -6,16 +6,17 @@ def check_password(password):
     lower_case_score = 0
     number_score = 0
     special_char_score = 0
+    pw_length = len(password)
 
-    if len(password) >= 8:
-        # if more than or equal to 8
+    if pw_length >= 8:
+        # point if more than or equal to 8
         overall_score += 1
     
-    if len(password) > 8:
+    if pw_length > 8:
         # bonus point if more than 8 and less than 16
         overall_score += 1
 
-    if len(password) >= 16:
+    if pw_length >= 16:
         # bonus point if more than 16
         overall_score += 1
 
