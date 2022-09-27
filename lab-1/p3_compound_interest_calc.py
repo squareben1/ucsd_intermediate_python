@@ -19,13 +19,30 @@ def get_compound_interest(principal, apr, term):
     return calc_list
 
 
-# def print_compound_int_output():
+def format_tabular_string(list):
     # print(f"{apr:>12,.2f} ")
+    string = """Year       Interest        Balance 
+    =================================="""
+
+    return f"{apr:>12,.2f} "
     # define a string with:
     # Year       Interest        Balance
     # ==================================
     # then append to it
     # seperate
+
+# >>> d = {1: ["Python", 33.2, 'UP'],
+# ... 2: ["Java", 23.54, 'DOWN'],
+# ... 3: ["Ruby", 17.22, 'UP'],
+# ... 10: ["Lua", 10.55, 'DOWN'],
+# ... 5: ["Groovy", 9.22, 'DOWN'],
+# ... 6: ["C", 1.55, 'UP']
+# ... }
+# >>> print ("{:<8} {:<15} {:<10} {:<10}".format('Pos','Lang','Percent','Change'))
+# Pos      Lang            Percent    Change    
+# >>> for k, v in d.items():
+# ...     lang, perc, change = v
+# ...     print ("{:<8} {:<15} {:<10} {:<10}".format(k, lang, perc, change))
 
 # NOTE: I have chosen to round up to 2 decimal places based on the example given (i.e. when given the
 # numbers shown in example (principal = 100000, apr = 4.5, term = 10) my calc showed that interest in

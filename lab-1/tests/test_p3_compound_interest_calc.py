@@ -12,9 +12,10 @@ from p3_compound_interest_calc import *
 #    1  $    4,500.00  $  104,500.00
 #    2  $    4,702.50  $  109,202.50
 
+one_yr_one_pc = [[1, 10.0, 1010.0]]
 
 def test_get_compound_interest_one_year_1_apr():
-    assert get_compound_interest(1000, 1, 1) == [[1, 10.0, 1010.0]]
+    assert get_compound_interest(1000, 1, 1) == one_yr_one_pc
 
 
 def test_get_compound_interest_2_year_1_apr():
@@ -35,3 +36,10 @@ def test_provided_numbers():
                        [9, 6399.45, 148609.51],
                        [10, 6687.43, 155296.94]]
     assert get_compound_interest(100000, 4.5, 10) == complete_answer
+
+formatted_string = """Year       Interest        Balance 
+================================== 
+   1  $    4,500.00  $  104,500.00"""
+
+def test_create_string():
+    assert format_tabular_string(one_yr_one_pc) == formatted_string
