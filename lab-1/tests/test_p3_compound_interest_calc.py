@@ -16,4 +16,5 @@ def test_get_compound_interest_one_year_1_apr():
     assert get_compound_interest(1000, 1, 1) == [[1, 10.0, 1010.0]]
 
 def test_get_compound_interest_2_year_1_apr():
-    assert get_compound_interest(1000, 1, 2) == [[1, 10.0, 1010.0], [2, 20.1, 1020.1]]
+    assert get_compound_interest(1000, 1, 2) == [[1, 10.0, 1010.0], [2, 10.1, 1020.1]]
+                                                # [year, interest, new_principal]
