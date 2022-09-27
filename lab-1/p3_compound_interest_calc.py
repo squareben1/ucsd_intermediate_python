@@ -1,6 +1,4 @@
 
-from hashlib import new
-
 
 def get_compound_interest(principal, apr, term):
     """
