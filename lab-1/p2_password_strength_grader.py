@@ -1,6 +1,6 @@
 
 def check_password(password):
-    """Score strenght of password from 0 - 5."""
+    """Score strength of password from 0 - 5."""
     overall_score = 0
     upper_case_score = 0
     lower_case_score = 0
@@ -8,6 +8,12 @@ def check_password(password):
     special_char_score = check_string_contains(password, "!@#$%^&*")
     pw_length = len(password)
 
+# TODO: CHANGE BELOW:
+# Bad typo.
+# 0-7 = 0 points
+# 8-11 = 1 point
+# 12-15 = 2 points
+# 16+ = 3 points
     if pw_length >= 8:
         # if pw_length >= 8 and pw_length <= 11: # <- if using webpage instructions rather than PDF, see `NOTE ON BONUS POINTS` in README
         # point if more than or equal to 8
@@ -26,6 +32,7 @@ def check_password(password):
     stripped_pw = strip_special_characters_numbers(password)
 
     for i in stripped_pw:
+        # check for upper and lower case chars
         if i == i.upper():
             upper_case_score += 1
         if i == i.lower():

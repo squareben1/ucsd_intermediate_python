@@ -21,10 +21,9 @@ def get_compound_interest(principal, apr, term):
 
 def format_tabular_string(list):
     # print(f"{apr:>12,.2f} ")
-    string = """Year       Interest        Balance 
-    =================================="""
+    string = "Year       Interest        Balance\n=================================="
 
-    return f"{apr:>12,.2f} "
+    return f"{apr:>3,.2f} "
     # define a string with:
     # Year       Interest        Balance
     # ==================================
@@ -43,6 +42,7 @@ def format_tabular_string(list):
 # >>> for k, v in d.items():
 # ...     lang, perc, change = v
 # ...     print ("{:<8} {:<15} {:<10} {:<10}".format(k, lang, perc, change))
+
 
 # NOTE: I have chosen to round up to 2 decimal places based on the example given (i.e. when given the
 # numbers shown in example (principal = 100000, apr = 4.5, term = 10) my calc showed that interest in
