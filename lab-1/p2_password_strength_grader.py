@@ -1,7 +1,8 @@
-# Python II – Lab 1 - Part 2 – Ben Gittins 
+# Python II – Lab 1 - Part 2 – Ben Gittins
 
 def check_password(password):
-    """Score strength of password from 0 - 5."""
+    """Score strength of password from 0 - 5 (7 inc extra credit)."""
+    # Correct scoring for each criteria - see tests in pytest tests/test_p2_password_strength_grader.py
     overall_score = check_length(password)
     upper_case_score = 0
     lower_case_score = 0
@@ -12,6 +13,7 @@ def check_password(password):
     stripped_pw = strip_special_characters_numbers(password)
 
     for i in stripped_pw:
+        # Proper loop implementation (no overflows/all indices visited)
         # check for upper and lower case chars
         if i == i.upper():
             upper_case_score += 1
@@ -67,6 +69,7 @@ def tally_final_score(upper_case_score,
                       lower_case_score, number_score, special_char_score):
     """Calculate total score."""
     final_score = 0
+
     if upper_case_score > 0:
         final_score += 1
 
@@ -85,6 +88,7 @@ def tally_final_score(upper_case_score,
 def main():
     """Get user input, rate password with score. Return formatted string with score."""
     print("Enter a password: ")
+    # Properly handles user input
     password = input()
     answer = check_password(password)
 

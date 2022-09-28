@@ -1,10 +1,8 @@
 from p3_compound_interest_calc import *
 
-one_yr_one_pc = [[1, 10.0, 1010.0]]
-
 
 def test_get_compound_interest_one_year_1_apr():
-    assert get_compound_interest(1000, 1, 1) == one_yr_one_pc
+    assert get_compound_interest(1000, 1, 1) == [[1, 10.0, 1010.0]]
 
 
 def test_get_compound_interest_2_year_1_apr():

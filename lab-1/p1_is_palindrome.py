@@ -2,7 +2,9 @@
 
 def is_palindrome(string):
     """Return true if string arg is palindrome, else false."""
-    # Homogenise input, remove spaces.
+    # Homogenise input, remove spaces: 
+    # - Text comparison is case insensitive (A == a) 
+    # - Handles sentence-long palindromes (whitespace ignored)
     fmted_string = string.lower().replace(" ", "")
 
     # Treat single char as palindrome.
@@ -14,8 +16,9 @@ def is_palindrome(string):
     last = length - 1
 
     x = False
-
+    # Proper loop implementation (no overflows/all indices visited) 
     while first < last:
+        # Successful palindrome detection 
         if fmted_string[first] == fmted_string[last]:
             x = True
             first += 1
@@ -28,10 +31,13 @@ def is_palindrome(string):
 
 def main():
     """Get user input, check if palindrome. Return formatted string with answer."""
+    
+    # Properly handles user input 
     print("Enter a string: ")
     string = input()
     answer = is_palindrome(string)
-
+    
+    # Appropriate output
     output = f"Is '{string}' a palindrome? {answer}"
     print(output)
     return output
