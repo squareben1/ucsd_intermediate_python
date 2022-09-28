@@ -1,4 +1,4 @@
-# Please use for loops in the palindrome method, not a slicer or any other reverse function.
+# Python II – Lab 1 - Part 1 – Ben Gittins 
 
 def is_palindrome(string):
     """Return true if string arg is palindrome, else false."""

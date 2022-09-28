@@ -50,5 +50,6 @@ def test_feature_user_input_pw():
 def test_feature_user_input_pw_max_score():
     # mock user input
     builtins.input = lambda: "Abcdefghijklmnopq1!"
+    # extra credit: maximum score can be is 7
     assert main() == "Your password score is: 7"
     builtins.input = input

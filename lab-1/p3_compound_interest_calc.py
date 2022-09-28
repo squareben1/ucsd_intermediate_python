@@ -1,3 +1,4 @@
+# Python II – Lab 1 - Part 3 – Ben Gittins 
 
 # NOTE: I have rounded up to 2 decimal places based on the example given (i.e. when given the
 # numbers shown in example (principal = 100000, apr = 4.5, term = 10) my calc showed that interest in

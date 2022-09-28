@@ -1,3 +1,4 @@
+# Python II – Lab 1 - Part 2 – Ben Gittins 
 
 def check_password(password):
     """Score strength of password from 0 - 5."""
