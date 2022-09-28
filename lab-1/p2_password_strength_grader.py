@@ -44,6 +44,7 @@ def check_length(password):
 
 
 def check_string_contains(password, string):
+    """Score if password string contains arg string."""
     contains_score = 0
     for i in password:
         if i in string:
@@ -63,6 +64,7 @@ def strip_special_characters_numbers(password):
 
 def tally_final_score(upper_case_score,
                       lower_case_score, number_score, special_char_score):
+    """Calculate total score."""
     final_score = 0
     if upper_case_score > 0:
         final_score += 1
@@ -75,7 +77,7 @@ def tally_final_score(upper_case_score,
 
     if special_char_score > 0:
         final_score += 1
-    
+
     return final_score
 
 

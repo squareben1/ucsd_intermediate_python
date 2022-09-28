@@ -5,12 +5,10 @@ from p2_password_strength_grader import *
 
 
 def test_password_length_is_less_than_8():
-    # 0 points for 0-7 chars
     assert check_password("abcdef") == 1
 
 
 def test_password_length_8_to_12():
-    # 1 point for 8-11 chars,
     assert check_password("abcdefghe") == 2
 
 
