@@ -1,4 +1,4 @@
-# Python II – Lab 1 - Part 3 – Ben Gittins 
+# Python II – Lab 1 - Part 3 – Ben Gittins
 
 # NOTE: I have rounded up to 2 decimal places based on the example given (i.e. when given the
 # numbers shown in example (principal = 100000, apr = 4.5, term = 10) my calc showed that interest in
@@ -9,8 +9,10 @@ def get_compound_interest(principal, apr, term):
     Calculate interest, principal and total for each year of term.
     Return: list of lists: [[year, interest_amount, new_total]]
     """
+    # Proper parsing of input data into variables
     principal = float(principal)
     apr = float(apr)
+    term = int(term)
 
     calc_list = []
 
@@ -29,7 +31,7 @@ def format_tabular_string(list):
     string = f"Year\tInterest\tBalance\n===================================="
 
     for i in list:
-        # Proper loop creation (no overflows and all indices visited) 
+        # Proper loop creation (no overflows and all indices visited)
         year = f"{i[0]:2d}"
         interest = f"{i[1]:,.2f}"
         total = i[2]
@@ -39,7 +41,6 @@ def format_tabular_string(list):
         # All values line up in vertical columns
         string += (f"\n{year:>4}\t$ {interest:6}\t$ {total:,.2f}")
 
-    print(string)
     return string
 
 
@@ -50,18 +51,19 @@ def main():
     """
     # Properly handles user input
     print("Enter the principal amount (ex: 1000.00): ")
-    # Proper parsing of input data into variables
-    principal = float(input())
+    principal = input()
 
     print("Enter interest rate percentage (ex: 4.5): ")
-    apr = float(input())
+    apr = input()
 
     print("Enter term in years (ex: 10): ")
-    term = int(input())
+    term = input()
 
     calc_list = get_compound_interest(principal, apr, term)
 
     result = format_tabular_string(calc_list)
+
+    print(result)
 
 
 if __name__ == "__main__":
