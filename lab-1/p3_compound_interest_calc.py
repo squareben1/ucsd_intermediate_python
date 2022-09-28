@@ -51,7 +51,7 @@ def main():
     # Properly handles user input
     print("Enter the principal amount (ex: 1000.00): ")
     # Proper parsing of input data into variables
-    principal = int(input())
+    principal = float(input())
 
     print("Enter interest rate percentage (ex: 4.5): ")
     apr = float(input())
