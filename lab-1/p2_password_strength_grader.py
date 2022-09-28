@@ -1,32 +1,11 @@
 
 def check_password(password):
     """Score strength of password from 0 - 5."""
-    overall_score = 0
+    overall_score = check_length(password)
     upper_case_score = 0
     lower_case_score = 0
     number_score = check_string_contains(password, "123456789")
     special_char_score = check_string_contains(password, "!@#$%^&*")
-    pw_length = len(password)
-
-# TODO: CHANGE BELOW:
-# Bad typo.
-# 0-7 = 0 points
-# 8-11 = 1 point
-# 12-15 = 2 points
-# 16+ = 3 points
-    if pw_length >= 8:
-        # if pw_length >= 8 and pw_length <= 11: # <- if using webpage instructions rather than PDF, see `NOTE ON BONUS POINTS` in README
-        # point if more than or equal to 8
-        overall_score += 1
-
-    if pw_length > 8:
-        # if pw_length >= 12 and pw_length <= 15: # <- if using webpage instructions rather than PDF, see `NOTE ON BONUS POINTS` in README
-        # bonus point if more than 8 and less than 16
-        overall_score += 1
-
-    if pw_length >= 16:
-        # bonus point if more than 16
-        overall_score += 1
 
     # strip special chars & numbers to avoid double count.
     stripped_pw = strip_special_characters_numbers(password)
@@ -38,22 +17,30 @@ def check_password(password):
         if i == i.lower():
             lower_case_score += 1
 
-    if upper_case_score > 0:
-        overall_score += 1
-
-    if lower_case_score > 0:
-        overall_score += 1
-
-    if number_score > 0:
-        overall_score += 1
-
-    if special_char_score > 0:
-        overall_score += 1
-
-    # overall_score = tally_scores(
-    #     upper_case_score, lower_case_score, number_score, special_char_score)
+    overall_score += tally_final_score(upper_case_score,
+                                       lower_case_score, number_score, special_char_score)
 
     return overall_score
+
+
+def check_length(password):
+    """Calculate length-based score."""
+    pw_length = len(password)
+    length_score = 0
+
+    # 0-7 = 0 points
+    if pw_length >= 8:
+        # 8-11 = 1 point
+        length_score += 1
+
+    if pw_length >= 12:
+        # 12-15 = 2 points
+        length_score += 1
+
+    if pw_length >= 16:
+        # 16+ = 3 points
+        length_score += 1
+    return length_score
 
 
 def check_string_contains(password, string):
@@ -74,14 +61,22 @@ def strip_special_characters_numbers(password):
     return special_chars_stripped_pw
 
 
-# def tally_scores(upper_case_score, lower_case_score, number_score, special_char_score):
-#     scores = [upper_case_score, lower_case_score,
-#               number_score, special_char_score]
-#     overall_score = 0
-#     for score in scores:
-#         if score > 0:
-#             overall_score += 1
-#     return overall_score
+def tally_final_score(upper_case_score,
+                      lower_case_score, number_score, special_char_score):
+    final_score = 0
+    if upper_case_score > 0:
+        final_score += 1
+
+    if lower_case_score > 0:
+        final_score += 1
+
+    if number_score > 0:
+        final_score += 1
+
+    if special_char_score > 0:
+        final_score += 1
+    
+    return final_score
 
 
 def main():

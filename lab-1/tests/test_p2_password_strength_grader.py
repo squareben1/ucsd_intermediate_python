@@ -4,8 +4,22 @@ import builtins
 from p2_password_strength_grader import *
 
 
-def test_password_length_is_greater_than_or_equal_to_8():
-    assert check_password("abcdefgh") == 2
+def test_password_length_is_less_than_8():
+    # 0 points for 0-7 chars
+    assert check_password("abcdef") == 1
+
+
+def test_password_length_8_to_12():
+    # 1 point for 8-11 chars,
+    assert check_password("abcdefghe") == 2
+
+
+def test_extra_cred_bonus_more_12_to_15():
+    assert check_password("abcdefghijklm") == 3
+
+
+def test_extra_cred_bonus_more_16():
+    assert check_password("abcdefghijklmnopq") == 4
 
 
 def test_at_least_one_upper_case_letter():
@@ -27,18 +41,13 @@ def test_special_char():
 def test_all_adds_up_to_5():
     assert check_password("Abcdef1!") == 5
 
-def test_extra_cred_bonus_more_8():
-    assert check_password("abcdefghi") == 3
-
-def test_extra_cred_bonus_more_16():
-    assert check_password("abcdefghijklmnopq") == 4
-
 
 def test_feature_user_input_pw():
     # mock user input
     builtins.input = lambda: "Abcdef1!"
     assert main() == "Your password score is: 5"
     builtins.input = input
+
 
 def test_feature_user_input_pw_max_score():
     # mock user input
