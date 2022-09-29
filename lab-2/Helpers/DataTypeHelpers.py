@@ -1,3 +1,7 @@
 
 def isInt(string):
-    return True if isinstance(int(string), int) else False
+    try: 
+        if isinstance(int(string), int):
+            return True
+    except:
+        return False 
