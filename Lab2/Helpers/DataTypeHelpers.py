@@ -1,3 +1,6 @@
+__all__ = ['isInt', 'isFloat', 'isDate']
+# ^ correct?
+
 import datetime
 
 

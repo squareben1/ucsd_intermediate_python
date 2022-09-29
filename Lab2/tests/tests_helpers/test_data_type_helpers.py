@@ -22,4 +22,4 @@ def test_isDate_return_true_if_dateable():
 
 
 def test_isDate_return_false_if_not_fdateable():
-    assert isDate("not a float") == False
+    assert isDate("not a date") == False
