@@ -1,19 +1,13 @@
 
 def isInt(string):
     try:
-        if isinstance(int(string), int):
-            return True
-        else:
-            return False
+        return True if isinstance(int(string), int) else False
     except:
         return False
 
 
 def isFloat(string):
     try:
-        if isinstance(float(string), float):
-            return True
-        else:
-            return False
+        return True if isinstance(float(string), float) else False
     except:
         return False

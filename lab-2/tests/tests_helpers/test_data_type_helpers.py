@@ -10,8 +10,16 @@ def test_isInt_return_false_if_not_intable():
 
 
 def test_isFloat_return_true_if_floatable():
-    assert isInt("1") == True
+    assert isFloat("1") == True
 
 
 def test_isFloat_return_false_if_not_floattable():
-    assert isInt("not a float") == False
+    assert isFloat("not a float") == False
+
+
+# def test_isFloat_return_true_if_floatable():
+#     assert isInt("1") == True
+
+
+# def test_isFloat_return_false_if_not_floattable():
+#     assert isInt("not a float") == False
