@@ -1,17 +1,25 @@
-from DataTypeHelpers import isInt
+from Helpers.DataTypeHelpers import isInt
 
 
 def inputInt(prompt="Enter an integer: ", min_value=0, max_value=100):
-    answer = input(prompt)
+    """
+    Use input() method to display the “prompt” variable and read in a string.
+    Loop until input can be intified and is between min and max value.
+    """
 
     while True:
+        answer = input(prompt)
         if isInt(answer) != True:
             print("entered text needs to be in the int format...")
-            inputInt()
+            continue
         else:
             integer = int(answer)
-            print(integer)
-            return integer
+            if integer >= min_value and integer <= max_value:
+                print(integer)
+                return integer
+            else:
+                print("value is out of range ")
+                continue
 
 
 def main():
