@@ -23,10 +23,9 @@ def inputInt(prompt="Enter an integer: ", min_value=0, max_value=100):
             integer = int(answer)
             # ensure falls between min_value and max_value inc.
             if integer >= min_value and integer <= max_value:
-                print(integer)
                 return integer
             else:
-                print("value is out of range ")
+                print(f"Value must be between {min_value} and {max_value}")
                 continue
 
 
@@ -50,10 +49,9 @@ def inputFloat(prompt="Enter a float: ", min_value=0, max_value=100):
             num = float(answer)
             # ensure falls between min_value and max_value inc.
             if num >= min_value and num <= max_value:
-                print(num)
                 return num
             else:
-                print("value is out of range ")
+                print(f"Value must be between {min_value} and {max_value}")
                 continue
 
 
@@ -67,11 +65,11 @@ def inputString(prompt="Enter a string: ", min_length=0, max_length=100):
         # loop input prompt
         answer = input(prompt)
         length = len(answer)
+        print(length)
         if length >= min_length and length <= max_length:
-            print(answer)
             return answer
         else:
-            print("length is out of range ")
+            print(f"Text must be between {min_length} and {max_length} in length")
             continue
 
 
@@ -86,12 +84,11 @@ def inputDate(prompt="Enter a date in ISO format (yyyy-mm-dd): "):
         answer = input(prompt)
         if isDate(answer) != True:
             # if false print, continue loop
-            print("entered text needs to be in the “yyyy-mm-dd” format.")
+            print("Value must be a date in “yyyy-mm-dd” format.")
             continue
         else:
             # date = datetime.datetime.strptime(answer, "%Y%m%d").date()
             date = datetime.date.fromisoformat(answer)
-            print(date)
             return date
 
 

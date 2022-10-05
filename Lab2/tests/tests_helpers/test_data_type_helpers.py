@@ -34,6 +34,9 @@ def test_isFloat_return_false_if_not_floattable():
 def test_isDate_return_true_if_dateable():
     assert isDate("1991-09-01") == True
 
+def test_isDate_return_true_if_no_dashes_dateable():
+    assert isDate("19910901") == False
+
 
 def test_isDate_return_false_if_not_dateable():
     assert isDate("not a date") == False
