@@ -65,11 +65,12 @@ def inputString(prompt="Enter a string: ", min_length=0, max_length=100):
         # loop input prompt
         answer = input(prompt)
         length = len(answer)
-        print(length)
+
         if length >= min_length and length <= max_length:
             return answer
         else:
-            print(f"Text must be between {min_length} and {max_length} in length")
+            print(
+                f"Text must be between {min_length} and {max_length} in length")
             continue
 
 
@@ -90,15 +91,3 @@ def inputDate(prompt="Enter a date in ISO format (yyyy-mm-dd): "):
             # date = datetime.datetime.strptime(answer, "%Y%m%d").date()
             date = datetime.date.fromisoformat(answer)
             return date
-
-
-def main():
-    """Main Function."""
-
-    # inputInt()
-    # inputString()
-    inputDate()
-
-
-if __name__ == "__main__":
-    main()

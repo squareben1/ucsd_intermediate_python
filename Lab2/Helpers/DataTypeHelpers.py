@@ -16,7 +16,7 @@ def isFloat(string):
 
 def check_type(string, check_type):
     """Return True is string is parsable into given type (check_type), else False."""
-    # does this sacrifice some readabiity for sake of DRY? Worth it?
+    # does this sacrifice some readabiity for sake of not repeating code? Worth it?
     try:
         return True if isinstance(check_type(string), check_type) else False
     except:
@@ -27,6 +27,7 @@ def isDate(string):
     """Return True is string is parsable into date type, else False."""
     try:
         # date = datetime.datetime.strptime(string, "%Y%m%d").date()
+        # 2000-12-10 00:00:00
         date = datetime.date.fromisoformat(string)
         return True if isinstance(date, datetime.date) else False
     except:
