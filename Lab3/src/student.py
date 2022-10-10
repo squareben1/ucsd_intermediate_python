@@ -33,5 +33,6 @@ class Student:
 
     def add_courses(self, courses):
         """appends the given dictionary (called “courses”) to the member variable self.courses"""
+        # TODO Use assertions to ensure “courses” is a dictionary (type dict) 
         self.courses.update(courses)
         return self.courses
