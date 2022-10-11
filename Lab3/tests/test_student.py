@@ -56,15 +56,19 @@ class TestStudentClass:
 
         johnnie = Student(123456, "Johnnie", "Smith", {
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
-        jamie = Student(234567, "Jamie", "Strauss", {
-                          'CSE-101': 3.00, 'CSE-103': 3.50, 'CSE-202': 3.25, 'CSE-220': 4.00, 'CSE-401': 4.00})
-        jack = Student(345678, "Jack", "O'Neill", {
-                          'CSE-101': 2.50, 'CSE-102': 3.50, 'CSE-103': 3.00, 'CSE-104': 4.00})
-        students = [johnnie, jamie, jack]
-        result = students
-        assert students.add_courses(
-            {'CSE-102': 3.00}) == {'CSE-101': 3.50, 'CSE-102': 3.00}
+        # jamie = Student(234567, "Jamie", "Strauss", {
+        #                   'CSE-101': 3.00, 'CSE-103': 3.50, 'CSE-202': 3.25, 'CSE-220': 4.00, 'CSE-401': 4.00})
+        # jack = Student(345678, "Jack", "O'Neill", {
+        #                   'CSE-101': 2.50, 'CSE-102': 3.50, 'CSE-103': 3.00, 'CSE-104': 4.00})
+        # students = [johnnie, jamie, jack]
+        # result = students
+        assert johnnie.__str__() == '\n123456\t Smith\t Johnnie\t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
 
 # 123456 Johnnie Smith 'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00
 # 234567 Jamie Strauss 'CSE-101': 3.00, 'CSE-103': 3.50, 'CSE-202': 3.25, 'CSE-220': 4.00, 'CSE-401': 4.00
 # 345678 Jack O'Neill 'CSE-101': 2.50, 'CSE-102': 3.50, 'CSE-103': 3.00, 'CSE-104': 4.00
+
+    def test_get_course_list(self):
+        johnnie = Student(123456, "Johnnie", "Smith", {
+                          'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
+        assert johnnie.get_course_list() == "CSE-101,CSE-102,CSE-201,CSE-220,CSE-325"
