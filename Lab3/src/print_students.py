@@ -1,17 +1,6 @@
 import itertools
 from student import Student
 
-# johnnie = Student(123456, "Johnnie", "Smith"),
-# jamie = Student(234567, "Jamie", "Strauss"),
-# jack = Student(345678, "Jack", "O'Neill"),
-# susie = Student(456789, "Susie", "Marks"),
-# frank = Student(567890, "Frank", "Marks"),
-# annie = Student(654321, "Annie", "Marks"),
-# john = Student(456987, "John", "Smith"),
-# judy = Student(987456, "Judy", "Smith"),
-# kelly = Student(111354, "Kelly", "Williams"),
-# brad = Student(995511, "Brad", "Williams"),
-
 johnnie = Student(123456, "Johnnie", "Smith")
 jamie = Student(234567, "Jamie", "Strauss")
 jack = Student(345678, "Jack", "O'Neill")
@@ -22,7 +11,8 @@ john = Student(456987, "John", "Smith", {'CSE-101': 2.50, 'CSE-103': 3.00, 'CSE-
 judy = Student(987456, "Judy", "Smith", {'CSE-102': 4.00, 'CSE-103': 4.00, 'CSE-201': 3.00, 'CSE-210': 3.50, 'CSE-310': 4.00})
 kelly = Student(111354, "Kelly", "Williams", {'CSE-101': 3.50, 'CSE-102': 3.50, 'CSE-201': 3.00, 'CSE-202': 3.50, 'CSE-203': 3.50})
 brad = Student(995511, "Brad", "Williams", {'CSE-102': 3.00, 'CSE-110': 3.50, 'CSE-125': 3.50, 'CSE-201': 4.00, 'CSE-203': 3.00})
-
+# The remaining 4 student objects are to be created where the courses are passed to __init__’s courses parameter 
+# which is a dictionary containing all the courses and scores.
 
 students = [johnnie, jamie, jack, susie, frank, annie, john, judy, kelly, brad]
 
@@ -61,3 +51,19 @@ if __name__ == "__main__":
 
 
     print_students(students)
+
+
+# PRINTED OUTPUT OF THIS FILE: 
+
+# ID       Last Name      First Name      GPA  Courses
+# ==========================================================================================
+# 123456   Smith          Johnnie         3.650 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325
+# 234567   Strauss        Jamie           3.550 CSE-101,CSE-103,CSE-202,CSE-220,CSE-401
+# 345678   O'Neill        Jack            3.250 CSE-101,CSE-102,CSE-103,CSE-104
+# 456789   Marks          Susie           3.400 CSE-101,CSE-103,CSE-301,CSE-302,CSE-310
+# 567890   Marks          Frank           3.300 CSE-102,CSE-104,CSE-201,CSE-202,CSE-203
+# 654321   Marks          Annie           3.900 CSE-101,CSE-102,CSE-103,CSE-201,CSE-203
+# 456987   Smith          John            3.250 CSE-101,CSE-103,CSE-210,CSE-260
+# 987456   Smith          Judy            3.700 CSE-102,CSE-103,CSE-201,CSE-210,CSE-310
+# 111354   Williams       Kelly           3.400 CSE-101,CSE-102,CSE-201,CSE-202,CSE-203
+# 995511   Williams       Brad            3.400 CSE-102,CSE-110,CSE-125,CSE-201,CSE-203
