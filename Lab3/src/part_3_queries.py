@@ -46,8 +46,7 @@ def q3_get_unique_courses(student_list):
         # bonus: set comprehension
         {unique_courses.add(key) for key in student.courses.keys()}
 
-    print("unique_courses: ", unique_courses)
-    print(f"There are {len(unique_courses)} unique courses.")
+    print(f"These are the {len(unique_courses)} unique_courses: ", unique_courses)
 
 
 def q4_list_students_taken_course(student_list, course="CSE-201"):
@@ -58,11 +57,21 @@ def q4_list_students_taken_course(student_list, course="CSE-201"):
     print_students(students_have_taken_course)
 
 
+def q5_list_honor_roll_students(student_list):
+    """List students who have taken `CSE-201` and print the list using printStudents()."""
+    honor_roll = [student for student in student_list if student.gpa() >= 3.5]
+
+    print(f"These are the {len(honor_roll)} students with GPAs >= 3.5: ")
+    print_students(honor_roll)
+
 if __name__ == "__main__":
-    # q1_sort_alphabetically_asc(students)
-
-    # q2_sort_gpa_desc(students)
-
-    # q3_get_unique_courses(students)
+    q1_sort_alphabetically_asc(students)
+    print("#"*100)
+    q2_sort_gpa_desc(students)
+    print("#"*100)
+    q3_get_unique_courses(students)
+    print("#"*100)
     q4_list_students_taken_course(students)
+    print("#"*100)
+    q5_list_honor_roll_students(students)
     
