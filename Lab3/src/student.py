@@ -47,7 +47,7 @@ class Student(object):
         # TODO Johnnie Smith is messed up - no idea why.
         # string += (f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa()} {course_list:<6}")
         # print(string)
-        return f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa()} {course_list:<6}"
+        return f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa():.3f} {course_list:<6}"
 
     def get_course_list(self):
         """Return string of keys of self.course, i.e. course codes only"""

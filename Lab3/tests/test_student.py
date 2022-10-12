@@ -56,7 +56,7 @@ class TestStudentClass:
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
 
         assert johnnie.__str__(
-        ) == '123456\t Smith  \tJohnnie \t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
+        ) == '123456\t Smith  \tJohnnie \t3.650 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
 
     def test___str__multi_instance(self):
         johnnie = Student(123456, "Johnnie", "Smith", {
@@ -68,8 +68,8 @@ class TestStudentClass:
         students = [johnnie, jamie, jack]
         result = [i.__str__() for i in students]
         print(result[0])
-        assert result == ['123456\t Smith  \tJohnnie \t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325',
-                          '234567\t Strauss\tJamie   \t3.55 CSE-101,CSE-103,CSE-202,CSE-220,CSE-401', "345678\t O'Neill\tJack    \t3.25 CSE-101,CSE-102,CSE-103,CSE-104"]
+        assert result == ['123456\t Smith  \tJohnnie \t3.650 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325',
+                          '234567\t Strauss\tJamie   \t3.550 CSE-101,CSE-103,CSE-202,CSE-220,CSE-401', "345678\t O'Neill\tJack    \t3.250 CSE-101,CSE-102,CSE-103,CSE-104"]
 
     def test_get_course_list(self):
         johnnie = Student(123456, "Johnnie", "Smith", {
@@ -87,3 +87,4 @@ class TestStudentClass:
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
 
         assert Student.header() == "ID\t Last Name\tFirst Name\tGPA Courses\n=========================================================================================="
+
