@@ -42,15 +42,15 @@ class Student(object):
 
     def __str__(self):
         """Print tabular output as specified in rubric."""
-        string = ""
+        # string = ""
         course_list = self.get_course_list()
         # TODO Johnnie Smith is messed up - no idea why.
-        string += (f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa()} {course_list:<6}")
-        print(string)
-        return string
+        # string += (f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa()} {course_list:<6}")
+        # print(string)
+        return f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa()} {course_list:<6}"
 
     def get_course_list(self):
-        """Return string of keys of self.course, i.e. course codes"""
+        """Return string of keys of self.course, i.e. course codes only"""
         course_keys = ""
         try:
             for key in self.courses:
@@ -67,9 +67,7 @@ class Student(object):
 
     def header():
         """This method returns a string that can used as a header for the results of the __str__ method."""
-        print("HERE")
-        print(f"{'ID':>4}\t {'ID':5}\t{'name':5}\t{'self.gpa'} {'course_list':}")
-        return "ID Last Name First Name GPA Courses\n=========================================================================================="
+        return f"{'ID':>1}\t {'Last Name':7}\t{'First Name':8}\t{'GPA'} {'Courses':<6}\n=========================================================================================="
 
 # if __name__ == "__main__":
 

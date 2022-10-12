@@ -59,9 +59,6 @@ class TestStudentClass:
         ) == '123456\t Smith  \tJohnnie \t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
 
     def test___str__multi_instance(self):
-        # 123456 Johnnie Smith 'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00
-        # 234567 Jamie Strauss 'CSE-101': 3.00, 'CSE-103': 3.50, 'CSE-202': 3.25, 'CSE-220': 4.00, 'CSE-401': 4.00
-        # 345678 Jack O'Neill 'CSE-101': 2.50, 'CSE-102': 3.50, 'CSE-103': 3.00, 'CSE-104': 4.00
         johnnie = Student(123456, "Johnnie", "Smith", {
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
         jamie = Student(234567, "Jamie", "Strauss", {
@@ -85,6 +82,8 @@ class TestStudentClass:
         assert johnnie.__repr__(
         ) == "123456,Johnnie,Smith,{'CSE-101': 3.5, 'CSE-102': 3.0, 'CSE-201': 4.0, " "'CSE-220': 3.75, 'CSE-325': 4.0}"
 
-    # def test_header(self):
-    # print student and header to see 
-    #     assert Student.header() == "d"
+    def test_header(self):
+        johnnie = Student(123456, "Johnnie", "Smith", {
+                          'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
+
+        assert Student.header() == "ID\t Last Name\tFirst Name\tGPA Courses\n=========================================================================================="
