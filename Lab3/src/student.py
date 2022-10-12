@@ -27,9 +27,7 @@ class Student(object):
             if 0 < score > 4:
                 print("UH UH")
             else:
-                # append
                 self.courses[f"{course}"] = float(score)
-                print("self.courses", self.courses)
                 return self.courses
         except:
             return self.courses
@@ -42,11 +40,8 @@ class Student(object):
 
     def __str__(self):
         """Print tabular output as specified in rubric."""
-        # string = ""
         course_list = self.get_course_list()
-        # TODO Johnnie Smith is messed up - no idea why.
-        # string += (f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa()} {course_list:<6}")
-        # print(string)
+
         return f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa():.3f} {course_list:<6}"
 
     def get_course_list(self):
@@ -62,7 +57,6 @@ class Student(object):
 
     def __repr__(self):
         """Return simple string of class attrs."""
-        # TODO Finish
         return f"{self.id},{self.firstName},{self.lastName},{self.courses}"
 
     def header():

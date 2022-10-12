@@ -1,4 +1,3 @@
-import itertools
 from student import Student
 
 johnnie = Student(123456, "Johnnie", "Smith")
@@ -15,7 +14,6 @@ brad = Student(995511, "Brad", "Williams", {'CSE-102': 3.00, 'CSE-110': 3.50, 'C
 # which is a dictionary containing all the courses and scores.
 
 students = [johnnie, jamie, jack, susie, frank, annie, john, judy, kelly, brad]
-
 
 course_dicts_list = [
 {'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00},
