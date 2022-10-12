@@ -12,19 +12,12 @@ To run any [program]:
 
 e.g.
 
-`python3 HelpersDriver.py`
+`python3 src/print_students.py`
 
 To run all tests:
 
 `pytest`
 
-To run tests for specific program:
-
-`pytest [path_to/test_file]`
-
-e.g.
-
-`pytest tests/tests_helpers/test_data_type_helpers.py`
 
 ### Part 1
 
