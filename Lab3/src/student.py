@@ -25,7 +25,7 @@ class Student(object):
             score = float(score)
             assert isinstance(score, float)
             if 0 < score > 4:
-                print("UH UH")
+                print("Score out of range")
             else:
                 self.courses[f"{course}"] = float(score)
                 return self.courses

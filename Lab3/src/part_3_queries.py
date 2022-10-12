@@ -22,20 +22,35 @@ students = [johnnie, jamie, jack, susie, frank, annie, john, judy, kelly, brad]
 def q1_sort_alphabetically_asc(student_list):
     """Sort the list by lastName, firstName, both in ascending order, and print the results using printStudents()."""
     sorted_list = sorted(student_list, key=lambda student: (student.firstName, student.lastName))
+    
+    print("List of students sorted by Name: ")
     print_students(sorted_list)
+    
     return sorted_list
+
 
 def q2_sort_gpa_desc(student_list):
     """Sort the list by GPA in descending order and print the results using printStudents()."""
     sorted_list = sorted(student_list, key=lambda student: student.gpa(), reverse=True)
+    
+    print("List of students sorted by GPA: ")
     print_students(sorted_list)
+
     return sorted_list
 
 
+def q3_get_unique_courses(student_list):
+    unique_courses = set()
+    for student in student_list:
+        {unique_courses.add(key) for key in student.courses.keys()}
+    print("unique_courses: ", unique_courses)
+    print(f"There are {len(unique_courses)} unique courses.")
+
+
 if __name__ == "__main__":
-    print("List of students sorted by Name: ")
     q1_sort_alphabetically_asc(students)
 
-    print("List of students sorted by GPA: ")
     q2_sort_gpa_desc(students)
+
+    q3_get_unique_courses(students)
     
