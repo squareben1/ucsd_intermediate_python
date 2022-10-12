@@ -41,7 +41,7 @@ def q2_sort_gpa_desc(student_list):
 
 def q3_get_unique_courses(student_list):
     unique_courses = set()
-    
+
     for student in student_list:
         # bonus: set comprehension
         {unique_courses.add(key) for key in student.courses.keys()}
@@ -50,10 +50,19 @@ def q3_get_unique_courses(student_list):
     print(f"There are {len(unique_courses)} unique courses.")
 
 
+def q4_list_students_taken_course(student_list, course="CSE-201"):
+    """List students who have taken `CSE-201` and print the list using printStudents()."""
+    students_have_taken_course = [student for student in student_list if course in student.courses.keys()]
+
+    print(f"These are the {len(students_have_taken_course)} students who have taken {course}: ")
+    print_students(students_have_taken_course)
+
+
 if __name__ == "__main__":
-    q1_sort_alphabetically_asc(students)
+    # q1_sort_alphabetically_asc(students)
 
-    q2_sort_gpa_desc(students)
+    # q2_sort_gpa_desc(students)
 
-    q3_get_unique_courses(students)
+    # q3_get_unique_courses(students)
+    q4_list_students_taken_course(students)
     
