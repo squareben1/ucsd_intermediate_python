@@ -45,7 +45,7 @@ class Student(object):
         string = ""
         course_list = self.get_course_list()
         # TODO Johnnie Smith is messed up - no idea why.
-        string += (f"{self.id:>4}\t {self.lastName:5}\t{self.firstName:5}\t{self.gpa()} {course_list:<6}")
+        string += (f"{self.id:>4}\t {self.lastName:7}\t{self.firstName:8}\t{self.gpa()} {course_list:<6}")
         print(string)
         return string
 
