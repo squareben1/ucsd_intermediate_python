@@ -67,7 +67,7 @@ class Student(object):
 
     def header():
         """This method returns a string that can used as a header for the results of the __str__ method."""
-        return f"{'ID':>1}\t {'Last Name':7}\t{'First Name':8}\t{'GPA'} {'Courses':<6}\n=========================================================================================="
+        return f"{'ID':>1}\t {'Last Name':7}\t{'First Name':8}\t{'GPA'}  {'Courses':<6}\n=========================================================================================="
 
 # if __name__ == "__main__":
 

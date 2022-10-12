@@ -86,5 +86,5 @@ class TestStudentClass:
         johnnie = Student(123456, "Johnnie", "Smith", {
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
 
-        assert Student.header() == "ID\t Last Name\tFirst Name\tGPA Courses\n=========================================================================================="
+        assert Student.header() == "ID\t Last Name\tFirst Name\tGPA  Courses\n=========================================================================================="
 
