@@ -17,8 +17,13 @@ brad = Student(995511, "Brad", "Williams", {'CSE-102': 3.00, 'CSE-110': 3.50, 'C
 
 students = [johnnie, jamie, jack, susie, frank, annie, john, judy, kelly, brad]
 
-# def q1_sort_alphabetically_asc(student_list):
-#     print(sorted(student_list))
+# QUERIES 
+
+def q1_sort_alphabetically_asc(student_list):
+    """Sort the list by lastName, firstName, both in ascending order, and print the results using printStudents()."""
+    sorted_list = sorted(student_list, key=lambda student: (student.firstName, student.lastName))
+    print_students(sorted_list)
+    return sorted_list
 
 def q2_sort_gpa_desc(student_list):
     """Sort the list by GPA in descending order and print the results using printStudents()."""
@@ -28,7 +33,9 @@ def q2_sort_gpa_desc(student_list):
 
 
 if __name__ == "__main__":
-    
+    print("List of students sorted by Name: ")
+    q1_sort_alphabetically_asc(students)
+
     print("List of students sorted by GPA: ")
     q2_sort_gpa_desc(students)
     
