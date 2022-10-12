@@ -41,8 +41,11 @@ def q2_sort_gpa_desc(student_list):
 
 def q3_get_unique_courses(student_list):
     unique_courses = set()
+    
     for student in student_list:
+        # bonus: set comprehension
         {unique_courses.add(key) for key in student.courses.keys()}
+
     print("unique_courses: ", unique_courses)
     print(f"There are {len(unique_courses)} unique courses.")
 
