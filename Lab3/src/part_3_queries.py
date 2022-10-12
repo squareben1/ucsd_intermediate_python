@@ -67,11 +67,15 @@ def q5_list_honor_roll_students(student_list):
 if __name__ == "__main__":
     q1_sort_alphabetically_asc(students)
     print("#"*100)
+
     q2_sort_gpa_desc(students)
     print("#"*100)
+
     q3_get_unique_courses(students)
     print("#"*100)
+
     q4_list_students_taken_course(students)
     print("#"*100)
+    
     q5_list_honor_roll_students(students)
     

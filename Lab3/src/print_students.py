@@ -31,6 +31,7 @@ course_dicts_list = [
 def print_students(student_list):
     """Print student list with a header."""
     print(Student.header())
+    
     for student in student_list:
         print(student.__str__())
 
@@ -49,19 +50,3 @@ if __name__ == "__main__":
 
 
     print_students(students)
-
-
-# PRINTED OUTPUT OF THIS FILE: 
-
-# ID       Last Name      First Name      GPA  Courses
-# ==========================================================================================
-# 123456   Smith          Johnnie         3.650 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325
-# 234567   Strauss        Jamie           3.550 CSE-101,CSE-103,CSE-202,CSE-220,CSE-401
-# 345678   O'Neill        Jack            3.250 CSE-101,CSE-102,CSE-103,CSE-104
-# 456789   Marks          Susie           3.400 CSE-101,CSE-103,CSE-301,CSE-302,CSE-310
-# 567890   Marks          Frank           3.300 CSE-102,CSE-104,CSE-201,CSE-202,CSE-203
-# 654321   Marks          Annie           3.900 CSE-101,CSE-102,CSE-103,CSE-201,CSE-203
-# 456987   Smith          John            3.250 CSE-101,CSE-103,CSE-210,CSE-260
-# 987456   Smith          Judy            3.700 CSE-102,CSE-103,CSE-201,CSE-210,CSE-310
-# 111354   Williams       Kelly           3.400 CSE-101,CSE-102,CSE-201,CSE-202,CSE-203
-# 995511   Williams       Brad            3.400 CSE-102,CSE-110,CSE-125,CSE-201,CSE-203
