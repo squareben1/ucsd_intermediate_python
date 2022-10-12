@@ -56,7 +56,7 @@ class TestStudentClass:
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
 
         assert johnnie.__str__(
-        ) == '\n123456\t Smith\t Johnnie\t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
+        ) == '123456\t Smith\tJohnnie\t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
 
     def test___str__multi_instance(self):
         # 123456    Smith           Johnnie         3.650 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325
