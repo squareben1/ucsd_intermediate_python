@@ -12,7 +12,7 @@ class Student(object):
         """Calculates the cumulative grade point average for the student."""
 
         if self.courses == {}:
-            return total
+            return 0
         else:
             # bonus - use reduce to get sum before dividing
             total = reduce(lambda a, b: a + b, self.courses.values())
