@@ -52,17 +52,25 @@ class TestStudentClass:
             {'CSE-102': 3.00}) == {'CSE-101': 3.50, 'CSE-102': 3.00}
 
     def test___str__(self):
+        johnnie = Student(123456, "Johnnie", "Smith", {
+                          'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
+
+        assert johnnie.__str__(
+        ) == '\n123456\t Smith\t Johnnie\t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
+
+    def test___str__multi_instance(self):
         # 123456    Smith           Johnnie         3.650 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325
 
         johnnie = Student(123456, "Johnnie", "Smith", {
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
-        # jamie = Student(234567, "Jamie", "Strauss", {
-        #                   'CSE-101': 3.00, 'CSE-103': 3.50, 'CSE-202': 3.25, 'CSE-220': 4.00, 'CSE-401': 4.00})
-        # jack = Student(345678, "Jack", "O'Neill", {
-        #                   'CSE-101': 2.50, 'CSE-102': 3.50, 'CSE-103': 3.00, 'CSE-104': 4.00})
-        # students = [johnnie, jamie, jack]
-        # result = students
-        assert johnnie.__str__() == '\n123456\t Smith\t Johnnie\t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
+        jamie = Student(234567, "Jamie", "Strauss", {
+            'CSE-101': 3.00, 'CSE-103': 3.50, 'CSE-202': 3.25, 'CSE-220': 4.00, 'CSE-401': 4.00})
+        jack = Student(345678, "Jack", "O'Neill", {
+            'CSE-101': 2.50, 'CSE-102': 3.50, 'CSE-103': 3.00, 'CSE-104': 4.00})
+        students = [johnnie, jamie, jack]
+        result = [i.__str__() for i in students]
+
+        assert result == '\n123456\t Smith\t Johnnie\t3.65 CSE-101,CSE-102,CSE-201,CSE-220,CSE-325'
 
 # 123456 Johnnie Smith 'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00
 # 234567 Jamie Strauss 'CSE-101': 3.00, 'CSE-103': 3.50, 'CSE-202': 3.25, 'CSE-220': 4.00, 'CSE-401': 4.00
@@ -72,3 +80,11 @@ class TestStudentClass:
         johnnie = Student(123456, "Johnnie", "Smith", {
                           'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
         assert johnnie.get_course_list() == "CSE-101,CSE-102,CSE-201,CSE-220,CSE-325"
+
+    def test__repr__(self):
+        johnnie = Student(123456, "Johnnie", "Smith", {
+                          'CSE-101': 3.50, 'CSE-102': 3.00, 'CSE-201': 4.00, 'CSE-220': 3.75, 'CSE-325': 4.00})
+        assert johnnie.__repr__() == "123456,Smith,Johnnie,{'CSE-101': 3.5, 'CSE-102': 3, 'CSE-201': 4, 'CSE-220': 3.75, 'CSE-325': 4}"
+
+    def test_header(self):
+        assert Student.header() == "d"

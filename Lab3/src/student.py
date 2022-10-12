@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 class Student(object):
     def __init__(self, id, firstName, lastName, courses=None):
         self.id = id
@@ -7,12 +10,12 @@ class Student(object):
 
     def gpa(self):
         """Calculates the cumulative grade point average for the student."""
-        total = 0
+
         if self.courses == {}:
             return total
         else:
-            for key, value in self.courses.items():
-                total += float(value)
+            # bonus - use reduce to get sum before dividing
+            total = reduce(lambda a, b: a + b, self.courses.values())
 
             return total / len(self.courses.values())
 
@@ -39,25 +42,34 @@ class Student(object):
 
     def __str__(self):
         """Print tabular output as specified in rubric."""
-        # header:
-        # string = f"Year\tInterest\tBalance\n===================================="
         string = ""
         course_list = self.get_course_list()
-
-        string += (f"\n{self.id:>4}\t {self.lastName:5}\t {self.firstName:6}\t{self.gpa()} {course_list:6}")
+        # TODO Johnnie Smith is messed up - no idea why.
+        string += (f"{self.id:>4}\t {self.lastName:5}\t{self.firstName:5}\t{self.gpa()} {course_list:<6}")
         print(string)
         return string
 
     def get_course_list(self):
+        """Return string of keys of self.course, i.e. course codes"""
         course_keys = ""
         try:
             for key in self.courses:
                 course_keys += f"{key},"
         except:
             pass
-
+        # strip trailing ,
         return course_keys.rstrip(",")
 
+    def __repr__(self):
+        """Return simple string of class attrs."""
+        # TODO Finish
+        return f"{self.id},{self.firstName},{self.lastName},{self.courses}"
+
+    def header():
+        """This method returns a string that can used as a header for the results of the __str__ method."""
+        print("HERE")
+        print(f"{'ID':>4}\t {'ID':5}\t{'name':5}\t{'self.gpa'} {'course_list':}")
+        return "ID Last Name First Name GPA Courses\n=========================================================================================="
 
 # if __name__ == "__main__":
 
