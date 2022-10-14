@@ -16,3 +16,5 @@ Notes:
 - Please use the compose lambda/reduce trick I showed in the demos for the compositions.  The other way is just nasty.
 
         compose = lambda *F: reduce(lambda f, g: lambda x: f(g(x)), F)
+
+TODO: Refresh lambdas 
