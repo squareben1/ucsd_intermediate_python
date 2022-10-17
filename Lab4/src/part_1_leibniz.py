@@ -1,10 +1,9 @@
 from fraction import *
-# from Fraction import *
 from decimal import *
 
 pi50 = Decimal("3.14159265358979323846264338327950288419716939937510")
 
-iterations = 100000 #0
+iterations = 10000000
 
 
 class LeibnizPiIterator:
@@ -25,16 +24,23 @@ class LeibnizPiIterator:
             self.fraction -= Fraction(4, self.n)
         self.add_next = not self.add_next
         self.n += 2
-        print("self.fraction.value", self.fraction.value)
+
         return self.fraction.value
 
 
 counter = 0
 for x in LeibnizPiIterator():
-    # print(x)
     counter += 1
     if counter >= iterations:
         break
 print(f"pi after {counter} iterations: {x:.50f}")
 diff = pi50 - x
 print(f"Difference: {diff:0.50f}")
+
+
+# Output:
+# pi after 100000 iterations: 3.14158265358979348846264335202950289372841939396495
+# Difference: 0.00000999999999975000000003124999999046875000541015
+
+# pi after 10000000 iterations: 3.14159255358979323846289338327950288107216939937520
+# Difference: 0.00000009999999999999975000000000000312499999999990
