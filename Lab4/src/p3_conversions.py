@@ -13,4 +13,10 @@ def yards_to_miles(yards):
 def yards_to_feet(yards):
     feet_in_yard = 3
     # round to 16 places to match example
+    return round((yards * feet_in_yard), 16)
+
+
+def feet_to_yards(yards):
+    feet_in_yard = 3
+    # round to 16 places to match example
     return round((yards / feet_in_yard), 16)
