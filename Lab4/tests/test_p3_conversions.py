@@ -14,3 +14,10 @@ def test_yards_feet():
 
 def test_feet_yards():
     assert feet_to_yards(1) == 0.3333333333333333
+
+def test_feet_inches():
+    assert feet_to_inches(1) == 12
+
+
+def test_inches_feet():
+    assert inches_to_feet(1) == 0.0833333333333333
