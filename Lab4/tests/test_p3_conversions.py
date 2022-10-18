@@ -36,14 +36,22 @@ def test_inches_cm():
 def test_cm_inches():
     assert cm_to_inches(1) == 0.3937007874015748
 
+
 def test_cm_meters():
     assert cm_to_meters(1) == 0.01
+
 
 def test_meters_cm():
     assert meters_to_cm(1) == 100
 
+
 def test_meters_km():
     assert meters_to_km(1) == 0.001
 
+
 def test_km_meters():
     assert km_to_meters(1) == 1000
+
+
+def test_km_au():
+    assert km_to_au(1) == 149597870.700

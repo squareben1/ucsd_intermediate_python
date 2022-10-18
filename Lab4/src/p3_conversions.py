@@ -29,13 +29,16 @@ def inches_to_feet(inches):
     inches_in_foot = 12
     return round((inches / inches_in_foot), 16)
 
+
 def inches_to_cm(inches):
     cm_in_inch = 2.54
     return round((inches * cm_in_inch), 16)
 
+
 def cm_to_inches(inches):
     cm_in_inch = 2.54
     return round((inches / cm_in_inch), 16)
+
 
 def cm_to_meters(cm):
     cm_in_meter = 100
@@ -46,10 +49,17 @@ def meters_to_cm(cm):
     cm_in_meter = 100
     return round((cm * cm_in_meter), 16)
 
+
 def meters_to_km(meters):
     meter_in_km = 1000
     return round((meters / meter_in_km), 16)
 
+
 def km_to_meters(km):
     meter_in_km = 1000
     return round((km * meter_in_km), 16)
+
+
+def km_to_au(km):
+    km_in_au = 149597870.700
+    return round((km * km_in_au), 16)
