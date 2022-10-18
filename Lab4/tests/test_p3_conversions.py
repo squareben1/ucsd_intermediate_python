@@ -5,3 +5,9 @@ def test_miles_yards():
 
 def test_miles_yards_2():
     assert miles_to_yards(2) == 3520
+
+def test_yards_miles():
+    assert yards_to_miles(1) == 0.0005681818181818
+
+def test_yards_feet():
+    assert yards_to_feet(1) == 0.3333333333333333
