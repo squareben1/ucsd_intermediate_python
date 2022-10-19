@@ -49,3 +49,10 @@ def test_compose_1_km_miles():
                           inches_to_feet, cm_to_inches, meters_to_cm, km_to_meters)
     assert km_to_miles(1) == 0.6213711922399999
 
+
+def test_compose_12_km_inches():
+    """
+    Convert 12.7 kilometers to inches (result: 500000.0)
+    """
+    km_to_inches = compose(km_to_meters, meters_to_cm, cm_to_inches)
+    assert km_to_inches(12.7) == 500000.0
