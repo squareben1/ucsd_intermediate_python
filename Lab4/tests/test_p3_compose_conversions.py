@@ -28,3 +28,9 @@ def test_compose_1_meter_inches():
     """Convert 1 meter to inches (result: 39.37007874015748)"""
     meters_to_inches = compose(meters_to_cm, cm_to_inches)
     assert meters_to_inches(1) == 39.37007874015748
+
+def test_compose_10_miles_km():
+    """Convert 10 miles to kilometers (result: 16.09344)"""
+    mile_to_km = compose(miles_to_yards, yards_to_feet, feet_to_inches, inches_to_cm, cm_to_meters, meters_to_km)
+    assert mile_to_km(10) == 16.09344
+
