@@ -54,7 +54,7 @@ def test_km_meters():
 
 
 def test_km_au():
-    # first test showed readable in format given in Rubric. 
+    # first test showed readable in format given in Rubric.
     # assert km_to_au(1) == "0.000000006684587122268446" - note its a tiny bit off that given but I felt more time spent would be meaningless.
     assert km_to_au(1) == 6.6845871222684464e-09
 
@@ -62,11 +62,14 @@ def test_km_au():
 def test_au_km():
     assert au_to_km(1) == 149597870.700
 
+
 def test_au_ly():
     assert au_to_ly(1) == 0.00001581250740982065847572
 
+
 def test_ly_to_au():
     assert ly_to_au(1) == 63241.07708426628026865358
+
 
 def test_compose_miles_to_feet():
     miles_to_feet = compose(miles_to_yards, yards_to_feet)
@@ -75,25 +78,37 @@ def test_compose_miles_to_feet():
 # ================================ Extra Credit ================================
 
 # cm ➔ mm (centimeter to millimeter)
+
+
 def test_cm_mm():
     assert cm_to_mm(1) == 10
 
 # mm ➔ cm (millimeter to centimeter)
+
+
 def test_mm_cm():
     assert mm_to_cm(10) == 1
 
 # mm ➔ μm (millimeter to micrometer)
+
+
 def test_mm_micrometer():
     assert mm_to_micrometer(1) == 1000
 
 # μm ➔ mm (micrometer to millimeter)
+
+
 def test_micrometer_mm():
     assert micrometer_to_mm(1000) == 1
 
 # μm ➔ Å (micrometer to Angstrom)
+
+
 def test_micrometer_angstrom():
     assert micrometer_to_angstrom(1) == 10000
 
 # Å ➔ μm (Angstrom to micrometer)
+
+
 def test_angstrom_micrometer():
     assert angstrom_to_micrometer(10000) == 1
