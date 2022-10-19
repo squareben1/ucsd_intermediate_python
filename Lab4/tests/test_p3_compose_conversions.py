@@ -67,7 +67,7 @@ def test_compose_10m_meters_ly():
     Convert 9,460,730,472,580,800 meters to light years (result: 1)
     NOTE: My answer came to 1.0000000000000002, 0.0000000000000002 more than that in 
     the Lab instructions. 
-    This to be less than 2 meters difference (1.8921437881877 meters, to be precise, see working*). 
+    This is less than 2 meters difference (1.8921437881877 meters, to be precise, see working*). 
     So not that bad. 
     """
     meters_to_ly = compose(meters_to_km, km_to_au, au_to_ly)
