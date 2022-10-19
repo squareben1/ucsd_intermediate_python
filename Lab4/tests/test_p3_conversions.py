@@ -62,6 +62,8 @@ def test_km_au():
 def test_au_km():
     assert au_to_km(1) == 149597870.700
 
+def test_au_ly():
+    assert au_to_ly(1) == 0.00001581250740982065847572
 
 def test_ly_to_au():
     assert ly_to_au(1) == 63241.07708426628026865358

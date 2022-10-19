@@ -81,6 +81,10 @@ def au_to_km(au):
 #     km_in_au = 149597870.700
 #     return round((au / km_in_au), 16)
 
+def au_to_ly(ly):
+    ly_to_au = 63241.07708426628026865358
+    return round((ly / ly_to_au), 24)
+
 
 def ly_to_au(ly):
     ly_to_au = 63241.07708426628026865358
