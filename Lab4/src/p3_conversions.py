@@ -74,9 +74,6 @@ def km_to_au(km):
     print("Answer: {:.24f}".format(answer))
     return answer
     # return round((km / km_in_au), 24)
-# float("8.99284722486562e-02")
-# # and now with 'rounding'
-# "{:.8f}".format(float("8.99284722486562e-02"))
 
 
 def au_to_km(au):
