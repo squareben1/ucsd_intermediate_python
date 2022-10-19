@@ -1,10 +1,6 @@
 from fraction import *
 from decimal import *
 
-pi50 = Decimal("3.14159265358979323846264338327950288419716939937510")
-
-iterations = 10000000
-
 
 class LeibnizPiIterator:
     def __init__(self):
@@ -28,14 +24,18 @@ class LeibnizPiIterator:
         return self.fraction.value
 
 
-counter = 0
-for x in LeibnizPiIterator():
-    counter += 1
-    if counter >= iterations:
-        break
-print(f"pi after {counter} iterations: {x:.50f}")
-diff = pi50 - x
-print(f"Difference: {diff:0.50f}")
+if __name__ == "__main__":
+    pi50 = Decimal("3.14159265358979323846264338327950288419716939937510")
+    counter = 0
+    iterations = int(input("Enter number of iterations: "))
+
+    for x in LeibnizPiIterator():
+        counter += 1
+        if counter >= iterations:
+            break
+    print(f"pi after {counter} iterations: {x:.50f}")
+    diff = pi50 - x
+    print(f"Difference: {diff:0.50f}")
 
 
 # Output:

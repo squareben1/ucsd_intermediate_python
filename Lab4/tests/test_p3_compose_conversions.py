@@ -55,26 +55,34 @@ def test_compose_12_km_inches():
     km_to_inches = compose(km_to_meters, meters_to_cm, cm_to_inches)
     assert km_to_inches(12.7) == 500000.0
 
+
 def test_compose_500k_inches_km():
     """Convert 500000 inches to kilometers (result: 12.7)"""
     inches_to_km = compose(inches_to_cm, cm_to_meters, meters_to_km)
     assert inches_to_km(500000) == 12.7
+
 
 def test_compose_10m_meters_ly():
     """
     Convert 9,460,730,472,580,800 meters to light years (result: 1)
     NOTE: My answer came to 1.0000000000000002, 0.0000000000000002 more than that in 
     the Lab instructions. 
-    This to be less than 2 meters difference (1.8921437881877 meters, to be precise*). 
+    This to be less than 2 meters difference (1.8921437881877 meters, to be precise, see working*). 
     So not that bad. 
     """
     meters_to_ly = compose(meters_to_km, km_to_au, au_to_ly)
     assert meters_to_ly(9460730472580800) == 1.0000000000000002
 
 
-
-
 # * see working:
-ly_to_meters = compose(ly_to_au, au_to_km, km_to_meters)
-print(ly_to_meters(0.0000000000000002))
+# ly_to_meters = compose(ly_to_au, au_to_km, km_to_meters)
+# print(ly_to_meters(0.0000000000000002))
 
+
+# ================================ Extra Credit ================================
+
+# Showing implementation of extra credit conversions functions in compose()
+def test_compose_cm_micrometer():
+    """Convert 10 cm to micrometers (result: 100000)"""
+    cm_to_micrometer = compose(cm_to_mm, mm_to_micrometer)
+    assert cm_to_micrometer(10) == 100000
