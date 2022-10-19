@@ -68,12 +68,9 @@ def km_to_meters(km):
 
 def km_to_au(km):
     km_in_au = 149597870.700
-    # return float('1.31E+01')
-    # return round((km / km_in_au), 24)
     answer = km / km_in_au
     print("Answer: {:.24f}".format(answer))
     return answer
-    # return round((km / km_in_au), 24)
 
 
 def au_to_km(au):
@@ -89,3 +86,32 @@ def au_to_ly(ly):
 def ly_to_au(ly):
     ly_to_au = 63241.07708426628026865358
     return round((ly * ly_to_au), 16)
+
+# ================================ Extra Credit ================================
+
+def cm_to_mm(cm):
+    mm_in_cm = 10
+    return round((cm * mm_in_cm), 16)
+
+def mm_to_cm(mm):
+    mm_in_cm = 10
+    return round((mm / mm_in_cm), 16)
+
+
+def mm_to_micrometer(mm):
+    micrometers_in_mm = 1000
+    return round((mm * micrometers_in_mm), 16)
+
+
+def micrometer_to_mm(mm):
+    micrometers_in_mm = 1000
+    return round((mm / micrometers_in_mm), 16)
+
+def micrometer_to_angstrom(micrometer):
+    angstroms_in_micrometer = 10000
+    return round((micrometer * angstroms_in_micrometer), 16)
+
+
+def angstrom_to_micrometer(angstrom):
+    angstroms_in_micrometer = 10000
+    return round((angstrom / angstroms_in_micrometer), 16)

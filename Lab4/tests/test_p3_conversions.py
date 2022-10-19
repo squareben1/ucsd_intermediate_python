@@ -72,5 +72,28 @@ def test_compose_miles_to_feet():
     miles_to_feet = compose(miles_to_yards, yards_to_feet)
     assert miles_to_feet(1) == 5280
 
-# def test_compose_2_miles_inches():
-#     assert 
+# ================================ Extra Credit ================================
+
+# cm ➔ mm (centimeter to millimeter)
+def test_cm_mm():
+    assert cm_to_mm(1) == 10
+
+# mm ➔ cm (millimeter to centimeter)
+def test_mm_cm():
+    assert mm_to_cm(10) == 1
+
+# mm ➔ μm (millimeter to micrometer)
+def test_mm_micrometer():
+    assert mm_to_micrometer(1) == 1000
+
+# μm ➔ mm (micrometer to millimeter)
+def test_micrometer_mm():
+    assert micrometer_to_mm(1000) == 1
+
+# μm ➔ Å (micrometer to Angstrom)
+def test_micrometer_angstrom():
+    assert micrometer_to_angstrom(1) == 10000
+
+# Å ➔ μm (Angstrom to micrometer)
+def test_angstrom_micrometer():
+    assert angstrom_to_micrometer(10000) == 1
