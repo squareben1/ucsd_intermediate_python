@@ -1,3 +1,9 @@
+from functools import reduce
+
+
+def compose(*functions):
+    return reduce(lambda f, g: lambda x: g(f(x)), functions)
+
 
 def miles_to_yards(miles):
     yards_in_mile = 1760
@@ -71,6 +77,7 @@ def km_to_au(km):
 # float("8.99284722486562e-02")
 # # and now with 'rounding'
 # "{:.8f}".format(float("8.99284722486562e-02"))
+
 
 def au_to_km(au):
     km_in_au = 149597870.700

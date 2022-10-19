@@ -67,3 +67,10 @@ def test_au_ly():
 
 def test_ly_to_au():
     assert ly_to_au(1) == 63241.07708426628026865358
+
+def test_compose_miles_to_feet():
+    miles_to_feet = compose(miles_to_yards, yards_to_feet)
+    assert miles_to_feet(1) == 5280
+
+# def test_compose_2_miles_inches():
+#     assert 
