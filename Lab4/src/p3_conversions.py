@@ -62,4 +62,26 @@ def km_to_meters(km):
 
 def km_to_au(km):
     km_in_au = 149597870.700
-    return round((km * km_in_au), 16)
+    # return float('1.31E+01')
+    # return round((km / km_in_au), 24)
+    answer = km / km_in_au
+    print("Answer: {:.24f}".format(answer))
+    return answer
+    # return round((km / km_in_au), 24)
+# float("8.99284722486562e-02")
+# # and now with 'rounding'
+# "{:.8f}".format(float("8.99284722486562e-02"))
+
+def au_to_km(au):
+    km_in_au = 149597870.700
+    return round((au * km_in_au), 16)
+
+
+# def au_to_km(au):
+#     km_in_au = 149597870.700
+#     return round((au / km_in_au), 16)
+
+
+def ly_to_au(ly):
+    ly_to_au = 63241.07708426628026865358
+    return round((ly * ly_to_au), 16)
