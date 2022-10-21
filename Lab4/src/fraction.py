@@ -1,8 +1,9 @@
 __all__ = ["GCD", "Fraction"]
-from functools import total_ordering 
+from functools import total_ordering
 from decimal import *
 
 getcontext().prec = 100
+
 
 def GCD(num1, num2):
     '''
@@ -24,12 +25,12 @@ def GCD(num1, num2):
 class Fraction:
     '''
     Represents a fraction in the form n/d.
-    '''    
+    '''
 
-    #===============================================================================
+    # ===============================================================================
     # Special methods and overrides
-    #===============================================================================
-    def __init__(self, numerator = 0, denominator = 1):
+    # ===============================================================================
+    def __init__(self, numerator=0, denominator=1):
         '''
         Initializer/constructor for Fraction.
         Args:
@@ -40,7 +41,7 @@ class Fraction:
         self.numerator = numerator
         self.denominator = denominator
         self.simplify()
-                
+
     def __str__(self):
         '''
         Converts this Fraction object to a string.
@@ -48,12 +49,13 @@ class Fraction:
             self(Fraction): The object
         '''
         return f"{self.numerator}/{self.denominator}"
-        
-    #===============================================================================
+
+    # ===============================================================================
     # Properties (using descriptors)
-    #===============================================================================
-    class Numerator: 
+    # ===============================================================================
+    class Numerator:
         '''Numerator of a fraction'''
+
         def __get__(self, instance, owner):
             return instance.__numerator
 
@@ -65,9 +67,10 @@ class Fraction:
 
         def __delete__(self, instance):
             instance.__numerator = 0
-            
-    class Denominator: 
+
+    class Denominator:
         '''Denominator of a fraction'''
+
         def __get__(self, instance, owner):
             return instance.__denominator
 
@@ -86,7 +89,7 @@ class Fraction:
             instance.__denominator = 1
     numerator = Numerator()
     denominator = Denominator()
-        
+
     @property  # decorator for read access to value
     def value(self):
         '''
@@ -103,10 +106,10 @@ class Fraction:
         val = num / den
         getcontext().prec = prec
         return val
-        
-    #===============================================================================
+
+    # ===============================================================================
     # Operator Overloading
-    #===============================================================================           
+    # ===============================================================================
     def __add__(self, other):
         '''
         Adds two Fraction objects
@@ -121,7 +124,7 @@ class Fraction:
         elif other != None and type(other) is int:
             return self + Fraction(other, 1)
         return self
-    
+
     def __sub__(self, other):
         '''
         Subtracts two Fraction objects
@@ -136,7 +139,7 @@ class Fraction:
         elif other != None and type(other) is int:
             return self - Fraction(other, 1)
         return self
-    
+
     def __mul__(self, other):
         '''
         Multiplies two Fraction objects
@@ -151,7 +154,7 @@ class Fraction:
         elif other != None and type(other) is int:
             return self * Fraction(other, 1)
         return self
-    
+
     def __div__(self, other):
         '''
         Divides two Fraction objects
@@ -166,7 +169,7 @@ class Fraction:
         elif other != None and type(other) is int:
             return self / Fraction(other, 1)
         return self
-    
+
     def __truediv__(self, other):
         '''
         Divides two Fraction objects
@@ -184,7 +187,7 @@ class Fraction:
         elif other != None and type(other) is int:
             return self / Fraction(other, 1)
         return self
-    
+
     def __eq__(self, other):
         '''
         Determines if two Fractions are equal
@@ -199,7 +202,7 @@ class Fraction:
         elif other != None and type(other) is int:
             return self == Fraction(other, 1)
         return False
-        
+
     def __lt__(self, other):
         '''
         Determines if one Fraction is less than another
@@ -214,11 +217,11 @@ class Fraction:
         elif other != None and type(other) is int:
             return self.value < Fraction(other, 1)
         return False
-    
-    
-    #===============================================================================
+
+    # ===============================================================================
     # Methods
-    #===============================================================================        
+    # ===============================================================================
+
     def simplify(self):
         '''
         Simplifies the Fraction object
@@ -229,5 +232,3 @@ class Fraction:
         if gcd > 1:
             self.numerator = int(Decimal(self.numerator) / Decimal(gcd))
             self.denominator = int(Decimal(self.denominator) / Decimal(gcd))
-            
-    
