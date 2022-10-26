@@ -54,7 +54,7 @@ def load_name_files_tpe(worker_threads=2):
     # asserts [(0, 'JAMES', 'SMITH')] but was getting [(0, 'SMITH', 'JAMES')]. I have therefore implemented this function for
     # extra credit but not actually used it (see commented code in generate_people()) as it made variable assignment inconsistent.
     # Opted not to spend longer making it consistent since its actual use in the code was not required in the extra credit rubric.
-    
+
     return [future.result() for future in concurrent.futures.as_completed(futures)]
 
 # ================================ Part 2 ================================
