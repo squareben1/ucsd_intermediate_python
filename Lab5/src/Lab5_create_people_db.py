@@ -53,9 +53,9 @@ def create_people_database(db_file, count):
         sql_insert_person = "INSERT INTO people(id,first_name,last_name) VALUES(?,?,?);"
         cursor = conn.cursor()
         for person in people:
-            print(person)  # uncomment if you want to see the person object
+            # print(person)  # uncomment if you want to see the person object
             cursor.execute(sql_insert_person, person)
-            print(cursor.lastrowid)  # uncomment if you want to see the row id
+            # print(cursor.lastrowid)  # uncomment if you want to see the row id
         cursor.close()
 
 

@@ -1,8 +1,6 @@
 import sqlite3
 from sqlite3 import Error
 
-# part 3
-
 
 class PersonDB():
     def __init__(self, db_file=''):
