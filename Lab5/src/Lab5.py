@@ -2,8 +2,7 @@ import random
 import sqlite3
 from sqlite3 import Error
 
-people_db_file = "sqlite.db"  # The name of the database file to use
-max_people = 500  # Number of records to create
+# part_1
 
 
 def generate_people(count):
@@ -24,10 +23,16 @@ def generate_people(count):
 
 
 def get_names(filename):
-    """Return list of stripped names."""
+    """Return list of stripped names from file."""
     names_file = open(f"src/{filename}", "r")
 
     return [i.rstrip() for i in names_file.readlines()]
+
+# part 2
+
+
+people_db_file = "sqlite.db"  # The name of the database file to use
+max_people = 500  # Number of records to create
 
 
 def create_people_database(db_file, count):
@@ -48,11 +53,10 @@ def create_people_database(db_file, count):
         sql_insert_person = "INSERT INTO people(id,first_name,last_name) VALUES(?,?,?);"
         cursor = conn.cursor()
         for person in people:
-            print(person) # uncomment if you want to see the person object
+            print(person)  # uncomment if you want to see the person object
             cursor.execute(sql_insert_person, person)
-            print(cursor.lastrowid) # uncomment if you want to see the row id
+            print(cursor.lastrowid)  # uncomment if you want to see the row id
         cursor.close()
-        
 
 
 if __name__ == "__main__":
