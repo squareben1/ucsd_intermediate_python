@@ -60,6 +60,7 @@ def without_tpe():
 
     print(people)
 
+# =======================================================================================
 
 if __name__ == "__main__":
     print("Create people DB")
@@ -71,8 +72,10 @@ if __name__ == "__main__":
     people_list = load_people_tpe_list_comp()
     with_tpe_finish = time.time() - with_tpe_start
 
+    # Extra credit:
     print(sort_future_list(people_list))
 
+    # ================================ Done out of interest ================================
     # Uncomment below if interested in time differences:
 
     # without_tpe_start = time.time()

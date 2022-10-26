@@ -1,4 +1,4 @@
-from src.Lab5 import *
+from src.Lab5_create_people_db import *
 import unittest.mock as mock
 
 
