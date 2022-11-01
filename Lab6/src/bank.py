@@ -21,6 +21,7 @@ class Customer():
         self.name = name
 
     def __str__(self):
+        # put (C) in string?
         return "{self.name}"
 
 
@@ -34,10 +35,38 @@ class Teller():
             print(msg)
 
 
+def wait_outside_bank(customer, guard, teller_line, printlock):
+    # print customer is waiting outside the bank
+    print(f"(C) {customer} is waiting outside bank")
+    # try acquire semaphore from guard (NOT in with cntxt mgr)
+    guard.acquire()
+
+    try:
+        # print security gurard msg saying customer left bank
+        print(f"<G> Customer {customer} has left bank.")
+        # print customer msg saying trying to get in line
+        print(f"(C) {customer} is waiting outside bank")
+        # put customer in teller_line queue using queue's put()
+        print(f"(C) {customer} is joining teller_line")
+        teller_line.put(customer)
+    finally:
+        print("Release")
+        # release at some point
+
+
 if __name__ == "__main__":
     printlock = Lock()
     teller_line = Queue(maxsize=max_customers_in_bank)
     guard = Semaphore(max_customers_in_bank)
     Teller.bankprint(printlock, "<G> Security guard starting their shift")
     Teller.bankprint(printlock, "*B* Bank open")
+
+    customers = generate_customer_names(max_customers)
+
+    jobs = [Thread(target=wait_outside_bank, args=(
+        customers[i], guard, teller_line, printlock)).start() for i in range(max_customers)]
     
+    # for job in jobs:
+    #     print("job before start: ", job)
+    #     job.start()
+    #     print("Job after start: ", job)
