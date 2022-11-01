@@ -18,6 +18,6 @@ def generate_customer_names(count):
 
 def get_names(filename):
     """Return list of stripped names from file."""
-    names_file = open(f"src/{filename}", "r")
+    names_file = open(f"src/customer_generation/{filename}", "r")
 
     return [i.rstrip() for i in names_file.readlines()]

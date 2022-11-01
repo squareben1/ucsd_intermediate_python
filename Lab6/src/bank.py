@@ -2,7 +2,7 @@ from threading import Semaphore, Thread, Lock
 from queue import Queue, Empty
 from random import randint
 from time import sleep
-from get_customers import generate_customer_names
+from customer_generation.get_customers import generate_customer_names
 
 # maximum number of customers that can be in the bank at one time
 max_customers_in_bank = 10
