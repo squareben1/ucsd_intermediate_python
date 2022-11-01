@@ -43,9 +43,9 @@ def wait_outside_bank(customer, guard, teller_line, printlock):
 
     try:
         # print security gurard msg saying customer left bank
-        print(f"<G> Customer {customer} has left bank.")
+        print(f"<G> Customer {customer} has entered bank.")
         # print customer msg saying trying to get in line
-        print(f"(C) {customer} is waiting outside bank")
+        print(f"(C) {customer} is trying to get in line")
         # put customer in teller_line queue using queue's put()
         print(f"(C) {customer} is joining teller_line")
         teller_line.put(customer)
@@ -66,6 +66,7 @@ if __name__ == "__main__":
     jobs = [Thread(target=wait_outside_bank, args=(
         customers[i], guard, teller_line, printlock)).start() for i in range(max_customers)]
     
+    sleep(5)
     # for job in jobs:
     #     print("job before start: ", job)
     #     job.start()
