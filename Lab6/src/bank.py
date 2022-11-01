@@ -2,11 +2,18 @@ from threading import Semaphore, Thread, Lock
 from queue import Queue, Empty
 from random import randint
 from time import sleep
+from get_customers import generate_customer_names
 
-max_customers_in_bank = 10 # maximum number of customers that can be in the bank at one time
+# maximum number of customers that can be in the bank at one time
+max_customers_in_bank = 10
 max_customers = 30  # number of customers that will go to the bank today
 max_tellers = 3  # number of tellers working today
 teller_timeout = 10  # longest time that a teller will wait for new customers
+
+# • *B* for bank messages
+# • <G> for security guard messages
+# • [T] for teller messages
+# • (C) for customer messages
 
 
 class Customer():
@@ -22,9 +29,7 @@ class Teller():
         pass
 
     def bankprint(lock, msg):
-        # lock is a Lock object that must be acquired before the print() function is called.
-        # o Hint: Use a with context manager block on the lock object
-        # • msg is the text to print.
+        """Acquire lock, print message, release."""
         with lock:
             print(msg)
 
@@ -35,3 +40,4 @@ if __name__ == "__main__":
     guard = Semaphore(max_customers_in_bank)
     Teller.bankprint(printlock, "<G> Security guard starting their shift")
     Teller.bankprint(printlock, "*B* Bank open")
+    
