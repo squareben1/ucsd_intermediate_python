@@ -10,11 +10,6 @@ max_customers = 30  # number of customers that will go to the bank today
 max_tellers = 3  # number of tellers working today
 teller_timeout = 10  # longest time that a teller will wait for new customers
 
-# • *B* for bank messages
-# • <G> for security guard messages
-# • [T] for teller messages
-# • (C) for customer messages
-
 
 class Customer():
     def __init__(self, name):
@@ -31,6 +26,11 @@ class Teller():
     def __str__(self):
         return self.name
 
+# • *B* for bank messages
+# • <G> for security guard messages
+# • [T] for teller messages
+# • (C) for customer messages
+
 
 def bankprint(lock, msg):
     """Acquire lock, print message, release."""
@@ -39,28 +39,29 @@ def bankprint(lock, msg):
 
 
 def wait_outside_bank(customer, guard, teller_line, printlock):
-    bankprint(printlock, f"(C) {customer} is waiting outside bank")
+    bankprint(printlock, f"(C) '{customer}' waiting outside bank")
     guard.acquire()
 
     try:
-        bankprint(printlock, f"<G> {customer} has entered bank.")
-        bankprint(printlock, f"(C) {customer} is trying to get in line")
-        bankprint(printlock, f"(C) {customer} is joining teller_line")
+        bankprint(
+            printlock, f"<G> Secuirty Guard letting '{customer}' into the bank.")
+        bankprint(printlock, f"(C) '{customer}' getting into line")
         teller_line.put(customer)
     except:
         print("Error in wait_outside_bank")
 
 
 def teller_job(teller, guard, teller_line, printlock):
-    bankprint(printlock, f"[T] {teller} starting shift.")
+    bankprint(printlock, f"[T] {teller} starting work")
     while True:
         try:
             customer = teller_line.get(timeout=teller_timeout)
-            bankprint(printlock, f"[T] {teller} is helping {customer}.")
+            bankprint(printlock, f"[T] {teller} is now helping '{customer}'")
             sleep(randint(1, 4))
             bankprint(
-                printlock, f"[T] {teller} has finished helping {customer}.")
-            bankprint(printlock, f"<G> Escorting {customer} out of bank.")
+                printlock, f"[T] {teller} is done helping '{customer}'.")
+            bankprint(
+                printlock, f"<G> Security Guard is letting '{customer}' out of the bank.")
             guard.release()
         except Empty:
             bankprint(
