@@ -39,6 +39,7 @@ def bankprint(lock, msg):
 
 
 def wait_outside_bank(customer, guard, teller_line, printlock):
+    """Add customer to teller_line queue."""
     bankprint(printlock, f"(C) '{customer}' waiting outside bank")
     guard.acquire()
 
@@ -52,6 +53,7 @@ def wait_outside_bank(customer, guard, teller_line, printlock):
 
 
 def teller_job(teller, guard, teller_line, printlock):
+    """Teller help customer."""
     bankprint(printlock, f"[T] {teller} starting work")
     while True:
         try:
@@ -73,6 +75,7 @@ if __name__ == "__main__":
     printlock = Lock()
     teller_line = Queue(maxsize=max_customers_in_bank)
     guard = Semaphore(max_customers_in_bank)
+
     bankprint(printlock, msg=f"<G> Security guard starting their shift")
     bankprint(printlock, "*B* Bank open")
 
