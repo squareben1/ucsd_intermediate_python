@@ -2,7 +2,7 @@ from threading import Semaphore, Thread, Lock
 from queue import Queue, Empty
 from random import randint
 from time import sleep
-from customer_generation.get_customers import generate_customer_names
+
 
 # maximum number of customers that can be in the bank at one time
 max_customers_in_bank = 10
@@ -21,53 +21,79 @@ class Customer():
         self.name = name
 
     def __str__(self):
-        # put (C) in string?
-        return "{self.name}"
+        return self.name
 
 
 class Teller():
-    def __init__(self) -> None:
-        pass
+    def __init__(self, name) -> None:
+        self.name = name
 
-    def bankprint(lock, msg):
-        """Acquire lock, print message, release."""
-        with lock:
-            print(msg)
+    def __str__(self):
+        return self.name
+
+
+def bankprint(lock, msg):
+    """Acquire lock, print message, release."""
+    with lock:
+        print(msg)
 
 
 def wait_outside_bank(customer, guard, teller_line, printlock):
-    # print customer is waiting outside the bank
-    print(f"(C) {customer} is waiting outside bank")
-    # try acquire semaphore from guard (NOT in with cntxt mgr)
+    bankprint(printlock, f"(C) {customer} is waiting outside bank")
     guard.acquire()
 
     try:
-        # print security gurard msg saying customer left bank
-        print(f"<G> Customer {customer} has entered bank.")
-        # print customer msg saying trying to get in line
-        print(f"(C) {customer} is trying to get in line")
-        # put customer in teller_line queue using queue's put()
-        print(f"(C) {customer} is joining teller_line")
+        bankprint(printlock, f"<G> {customer} has entered bank.")
+        bankprint(printlock, f"(C) {customer} is trying to get in line")
+        bankprint(printlock, f"(C) {customer} is joining teller_line")
         teller_line.put(customer)
-    finally:
-        print("Release")
-        # release at some point
+    except:
+        print("Error in wait_outside_bank")
+
+
+def teller_job(teller, guard, teller_line, printlock):
+    bankprint(printlock, f"[T] {teller} starting shift.")
+    while True:
+        try:
+            customer = teller_line.get(timeout=teller_timeout)
+            bankprint(printlock, f"[T] {teller} is helping {customer}.")
+            sleep(randint(1, 4))
+            bankprint(
+                printlock, f"[T] {teller} has finished helping {customer}.")
+            bankprint(printlock, f"<G> Escorting {customer} out of bank.")
+            guard.release()
+        except Empty:
+            bankprint(
+                printlock, f"[T] Nobody is in line, '{teller}' going on break.")
+            break
 
 
 if __name__ == "__main__":
     printlock = Lock()
     teller_line = Queue(maxsize=max_customers_in_bank)
     guard = Semaphore(max_customers_in_bank)
-    Teller.bankprint(printlock, "<G> Security guard starting their shift")
-    Teller.bankprint(printlock, "*B* Bank open")
+    bankprint(printlock, msg=f"<G> Security guard starting their shift")
+    bankprint(printlock, "*B* Bank open")
 
-    customers = generate_customer_names(max_customers)
+    customers = [Customer(f"Customer {i}") for i in range(max_customers)]
 
-    jobs = [Thread(target=wait_outside_bank, args=(
-        customers[i], guard, teller_line, printlock)).start() for i in range(max_customers)]
-    
+    waiting_customers = [Thread(target=wait_outside_bank, args=(
+        customer, guard, teller_line, printlock)).start() for customer in customers]
+
     sleep(5)
-    # for job in jobs:
-    #     print("job before start: ", job)
-    #     job.start()
-    #     print("Job after start: ", job)
+
+    bankprint(printlock, "*B* Tellers beginning work")
+
+    tellers = [Teller(f"Teller {i}") for i in range(max_tellers)]
+
+    teller_jobs = [Thread(target=teller_job, args=(
+        teller, guard, teller_line, printlock)) for teller in tellers]
+
+    for job in teller_jobs:
+        job.start()
+
+    for job in teller_jobs:
+        job.join()
+
+    bankprint(printlock, "*B* Bank closed.")
+    exit
