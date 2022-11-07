@@ -1,4 +1,4 @@
-
+import sys
 
 class Restaraunt():
 
@@ -28,16 +28,55 @@ class Restaraunt():
         pass
 
 
-# class Restaraunt():
-#     def __init__(self):
-#         pass
+class Food():
+    def __init__(self):
+        print("Creating new instance of Food class")
+        pass
+
+    def price(self):
+        return 0
+
+    def prepare(self):
+        # In derived classes, this method acts as a façade that encapsulates 
+        # the complex process for making this specific food
+        pass
+
+    @staticmethod
+    def order_food(food_type):
+
+        try:
+            if type(food_type) == str:
+                food_type = food_type.lower().strip()
+                food_cls_name = food_type.capitalize()
+                
+
+                new_class = getattr(sys.modules[__name__], food_cls_name)
+                new_class = new_class()
+                print(new_class.prepare())
+                # globalVars = vars()
+                # globalVars[food_cls_name]
+        except Exception as E:
+            print("Exception: ", E)
 
 
-rest1 = Restaraunt()
-rest2 = Restaraunt()
+class Cheeseburger(Restaraunt):
+    def price(self):
+        return 1
+
+    def prepare(self):
+        # In derived classes, this method acts as a façade that encapsulates 
+        # the complex process for making this specific food
+        return "Preparing cheeseburger"
+
+# rest1 = Restaraunt()
+# rest2 = Restaraunt()
 
 
-print(rest1)
-rest2._orders = 1
-print(rest2)
-print(rest1)
+# print(rest1)
+# rest2._orders = 1
+# print(rest2)
+# print(rest1)
+
+# cheeseburger = Food()
+
+Food.order_food("cheeseburger")
