@@ -46,6 +46,10 @@ class Food():
         making the specific food of derived class."""
         pass
 
+    def __str__(self):
+        """Class string method."""
+        return f"{type(self).__name__}: {self.price()}"
+
     @staticmethod
     def order_food(food_type):
         """Create instance class from food_type string"""
@@ -81,10 +85,6 @@ class Cheeseburger(Food):
 
         sleep(2)
 
-    def __str__(self):
-        """Class string method."""
-        return f"{__class__.__name__}: {self.price()}"
-
 
 class Pasta(Food):
     price_usd = 8.99
@@ -103,10 +103,6 @@ class Pasta(Food):
         print(f"{__class__.__name__}: All done!")
 
         sleep(2)
-
-    def __str__(self):
-        """Class string method."""
-        return f"{__class__.__name__}: {self.price()}"
 
 # Extra Credit
 
