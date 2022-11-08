@@ -124,10 +124,6 @@ class Sushi(Food):
 
         sleep(2)
 
-    def __str__(self):
-        """Class string method."""
-        return f"{__class__.__name__}: {self.price()}"
-
 
 def main():
     r = Restaurant()
