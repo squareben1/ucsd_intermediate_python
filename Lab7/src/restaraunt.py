@@ -12,7 +12,7 @@ class Restaurant():
         else returns the previous singleton object"""
 
         if not hasattr(cls, 'instance'):
-            print("Creating new instance")
+            print("Creating new instance pf Restaurant")
             cls.instance = super(Restaurant, cls).__new__(cls, *args, **kwargs)
         else:
             print("Using existing instance.")

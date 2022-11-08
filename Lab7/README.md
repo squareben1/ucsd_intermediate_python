@@ -17,3 +17,28 @@ To run any [program]:
 e.g.
 
 `python3 src/restaraunt.py`
+
+### Output of program
+
+Note: I left the new class prints in. 
+
+    Creating new instance pf Restaurant
+    Creating new instance of Food class
+    Cheeseburger: grill all-beef patty
+    Cheeseburger: flip patty
+    Cheeseburger: put cheese on patty
+    Cheeseburger: put patty on bun and add toppings
+    Cheeseburger: All done!
+    Cheeseburger: 5.99
+    Creating new instance of Food class
+    Pasta: boiling water
+    Pasta: saute onions, garlic and tomatoes for sauce.
+    Pasta: put pasta in water
+    Pasta: season the sauce
+    Pasta: plate pasta and add sauce on top
+    Pasta: All done!
+    Pasta: 8.99
+    Sorry, this restaurant does not make: mac and cheese module '__main__' has no attribute 'Mac and cheese'
+    This restaurant had 2 orders today for a total of 14.98 in sales
+    Using existing instance.
+    This restaurant had 2 orders today for a total of 14.98 in sales
