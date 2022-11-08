@@ -20,7 +20,7 @@ class Restaurant():
 
     def __str__(self):
         """Class string method."""
-        return f"This restaurant had {self._orders} orders today for a total of {self._total_sales} in sales"
+        return f"This restaurant had {self._orders} orders today for a total of ${self._total_sales} in sales"
 
     def order_food(self, food_type):
         """Call static order_food method of Food class and alter vars."""
