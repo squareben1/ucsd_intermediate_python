@@ -31,15 +31,18 @@ def mpg_to_kml(mpg):
     kml = 0.42514
     return mpg * kml
 
-
-print("BEFORE: ")
+# Create new KML columns: 20pts 
+print("BEFORE NEW COLUMNS: ")
 print(new_df)
 
 new_df = new_df.assign(CityKML=mpg_to_kml(new_df['City MPG']))
 new_df = new_df.assign(HwyKML=mpg_to_kml(new_df['Hwy MPG']))
 new_df = new_df.assign(CmbKML=mpg_to_kml(new_df['Cmb MPG']))
 
-print("AFTER: ")
+print("AFTER NEW COLUMNS:")
 print(new_df)
 
-new_df.to_csv('car_data.csv')
+# Save DataFrame to “car_data.csv”: 5pts
+filename = 'car_data.csv'
+print(f"Saving dataframe to {filename}")
+new_df.to_csv(filename)
