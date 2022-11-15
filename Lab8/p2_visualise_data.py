@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 filename = 'car_data.csv'
 
-df = pd.read_csv(filename)
+# read csv, drop extra index col:
+df = pd.read_csv(filename).drop(['Unnamed: 0'],axis=1)
 
 print(df)
