@@ -42,13 +42,4 @@ new_df = new_df.assign(CmbKML=mpg_to_kml(new_df['Cmb MPG']))
 print("AFTER: ")
 print(new_df)
 
-
-# 'Model'  Car manufacturer and model
-# 'Displ'  Engine displacement (size of engine)
-# 'Fuel'  Type of fuel
-# 'City MPG'  Number of miles the car gets per gallon of fuel in the city
-# 'Hwy MPG'  Number of miles the car gets per gallon of fuel on the highway
-# 'Cmb MPG' Combined number of miles the car gets per gallon of fuel in the city and
-# highway
-# 'Greenhouse Gas Score'  Calculated score indicating the cars efficiency (higher is
-# better)
+new_df.to_csv('car_data.csv')
