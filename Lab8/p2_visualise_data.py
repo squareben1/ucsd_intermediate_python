@@ -5,6 +5,6 @@ import matplotlib.pyplot as plt
 filename = 'car_data.csv'
 
 # read csv, drop extra index col:
-df = pd.read_csv(filename).drop(['Unnamed: 0'],axis=1)
+df = pd.read_csv(filename, header='infer', index_col=0)
 
 print(df)
