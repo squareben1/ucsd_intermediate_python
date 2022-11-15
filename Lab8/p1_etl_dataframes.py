@@ -1,6 +1,5 @@
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 
 # Load the “all_alpha_19.csv” file: 5pts
 df = pd.read_csv('./all_alpha_19.csv', header='infer')
@@ -31,7 +30,8 @@ def mpg_to_kml(mpg):
     kml = 0.42514
     return mpg * kml
 
-# Create new KML columns: 20pts 
+
+# Create new KML columns: 20pts
 print("BEFORE NEW COLUMNS: ")
 print(new_df)
 
