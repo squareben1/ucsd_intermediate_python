@@ -8,3 +8,7 @@ filename = 'car_data.csv'
 df = pd.read_csv(filename, header='infer', index_col=0)
 
 print(df)
+
+scatter_plot = df.plot.scatter(x='Displ', y='City MPG', c='r')
+
+plt.show()
