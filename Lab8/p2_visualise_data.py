@@ -11,4 +11,18 @@ print(df)
 
 scatter_plot = df.plot.scatter(x='Displ', y='City MPG', c='r')
 
+# plt.show()
+
+def get_fuel_colour(fuel_type):
+    if fuel_type == 'Gasoline':
+        return 'r'
+    elif fuel_type == 'Diesel':
+        return 'g'
+
+c = [get_fuel_colour(x) for x in df['Fuel']]
+s = [8 * x for x in df['Greenhouse Gas Score']]
+
+print(s)
+compelling_plot = df.plot.scatter(x='Displ', y='City MPG', s=s, c=c, alpha=0.5)
+
 plt.show()
