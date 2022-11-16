@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-filename = 'car_data.csv'
+filename = 'data/car_data.csv'
 
 # Load the “car_data.csv” file: 5pts
 # drop extra index col:

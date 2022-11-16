@@ -2,7 +2,7 @@ import pandas as pd
 
 
 # Load the “all_alpha_19.csv” file: 5pts
-df = pd.read_csv('./all_alpha_19.csv', header='infer')
+df = pd.read_csv('./data/all_alpha_19.csv', header='infer')
 
 # Filter the results: 15pts
 df2 = df.query('Stnd == "T3B125" and (Fuel == "Gasoline" | Fuel == "Diesel")')
@@ -43,6 +43,6 @@ print("AFTER NEW COLUMNS:")
 print(new_df)
 
 # Save DataFrame to “car_data.csv”: 5pts
-filename = 'car_data.csv'
+filename = 'data/car_data.csv'
 print(f"Saving dataframe to {filename}")
 new_df.to_csv(filename)
